@@ -95,10 +95,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\ship.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\game.js" />
+    <Content Include="Scripts\Managers\playerManager.js" />
     <Content Include="Scripts\test.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Web.Debug.config">
@@ -109,17 +112,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Images\background.jpg" />
-    <Content Include="Assets\Images\Chicken.png" />
-    <Content Include="Assets\Images\horse.png" />
-    <Content Include="Assets\Images\pig.png" />
     <Content Include="index.html" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
-    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\phaser.js" />
-    <Content Include="Scripts\phaser.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +128,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Audio\" />
+    <Folder Include="Assets\Fonts\" />
+    <Folder Include="Styles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -145,7 +146,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2657</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2657/</IISUrl>
+          <IISUrl>http://localhost:2658/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
