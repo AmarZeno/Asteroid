@@ -8,7 +8,9 @@ var GameState = {
     // initialize game settings
     init: function() {
         // Adapt to screen size
-
+        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.scale.pageAlignHorizontally = true;
+        this.scale.pageAlignVertically = true;
     },
 
     preload: function () {

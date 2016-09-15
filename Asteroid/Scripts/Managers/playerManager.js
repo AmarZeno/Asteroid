@@ -14,9 +14,9 @@ function playerManagerCreate(thisGame) {
 // Extended system update method
 function playerManagerUpdate(thisGame) {
     if (arrowKeys.left.isDown) {
-        this.ship.rotation += 0.02;
+        this.ship.rotation += 0.04;
     } else if (arrowKeys.right.isDown) {
-        this.ship.rotation -= 0.02;
+        this.ship.rotation -= 0.04;
     }
 }
 
