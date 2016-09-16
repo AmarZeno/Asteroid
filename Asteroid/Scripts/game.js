@@ -1,4 +1,5 @@
 ﻿/// <reference path="Phaser.js" />
+/// <reference path="Managers/configurationManager.js" />
 /// <reference path="Managers/playerManager.js" />
 
 var game = new Phaser.Game(1920, 1080, Phaser.AUTO);
@@ -6,29 +7,25 @@ var game = new Phaser.Game(1920, 1080, Phaser.AUTO);
 var GameState = {
 
     // initialize game settings
-    init: function() {
-        // Adapt to screen size
-        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        this.scale.pageAlignHorizontally = true;
-        this.scale.pageAlignVertically = true;
+    init: function () {
 
-        //  This will run in Canvas mode, so let's gain a little speed and display
-        game.renderer.clearBeforeRender = false;
-        game.renderer.roundPixels = true;
+        configurationManagerInit(this);
 
-
+        // Start physics system
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
-
     },
 
     preload: function () {
         // Load asset
+        LoadBackground(this);
         playerManagerLoad(this);
 
     },
 
     create: function () {
-        // Access load asset
+        // Access loaded asset
+       // this.background = this.add.sprite(0, 0, 'background');
+        drawBackground(this);
         playerManagerCreate(this);
     },
 
@@ -40,3 +37,15 @@ var GameState = {
 
 game.state.add('GameState', GameState);
 game.state.start('GameState');
+
+/*
+CUSTOM ACCESSORS
+*/
+
+function LoadBackground(thisGame) {
+    thisGame.load.image('background', 'Assets/Images/background.jpg');
+}
+
+function drawBackground(thisGame) {
+    thisGame.background = thisGame.add.sprite(0, 0, 'background');
+}

@@ -95,12 +95,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\background.jpg" />
+    <Content Include="Assets\Images\blue_laser.png" />
     <Content Include="Assets\Images\ship.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\game.js" />
+    <Content Include="Scripts\Managers\configurationManager.js" />
     <Content Include="Scripts\Managers\playerManager.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Web.Debug.config">

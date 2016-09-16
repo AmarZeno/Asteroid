@@ -14,6 +14,7 @@ ENGINE CALLS
 // Extended system preload method
 function playerManagerLoad(thisGame) {
     thisGame.load.image('ship', 'Assets/Images/ship.png');
+    thisGame.load.image('laser', 'Assets/Images/blue_laser.png');
 }
 
 // Extended system draw method
@@ -71,15 +72,13 @@ function capturePlayerActions() {
 function allowShipReflow() {
     if (this.ship.x < 0) {
         this.ship.x = game.width;
-    }
-    else if (this.ship.x > game.width) {
+    } else if (this.ship.x > game.width) {
         this.ship.x = 0;
     }
 
     if (this.ship.y < 0) {
         this.ship.y = game.height;
-    }
-    else if (this.ship.y > game.height) {
+    } else if (this.ship.y > game.height) {
         this.ship.y = 0;
     }
 }
@@ -90,8 +89,8 @@ function createLaserCollection() {
     laserCollection.enableBody = true;
     laserCollection.physicsBodyType = Phaser.Physics.ARCADE;
 
-    //  All 40 of them
-    laserCollection.createMultiple(2, 'laser');
+    //  Create one set of shooting at at time
+    laserCollection.createMultiple(1, 'laser');
     laserCollection.setAll('anchor.x', 0.5);
     laserCollection.setAll('anchor.y', 0.5);
 }
@@ -102,8 +101,9 @@ function fireLaser() {
 
         if (laser) {
             laser.reset(this.ship.body.x + 16, this.ship.body.y + 16);
-            laser.lifespan = 2000;
+            laser.lifespan = 2000; 
             laser.rotation = this.ship.rotation;
+            laser.scale.setTo(0.3);
             game.physics.arcade.velocityFromRotation(this.ship.rotation, 400, laser.body.velocity);
             laserTime = game.time.now + 50;
         }
