@@ -36,8 +36,9 @@ CUSTOM ACCESSORS
 
 function addPlayer(thisGame) {
     this.ship = thisGame.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship');
-    this.ship.scale.setTo(0.1);
+   // this.ship.scale.setTo(0.1);
     this.ship.anchor.setTo(0.5);
+    this.ship.anchor
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
 }
 
