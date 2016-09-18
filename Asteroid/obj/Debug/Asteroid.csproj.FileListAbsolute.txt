@@ -97,3 +97,36 @@ C:\Users\u1077160\Documents\Rapid Prototyping\Asteroid\Asteroid\bin\Microsoft.Co
 C:\Users\u1077160\Documents\Rapid Prototyping\Asteroid\Asteroid\obj\Debug\Asteroid.dll
 C:\Users\u1077160\Documents\Rapid Prototyping\Asteroid\Asteroid\obj\Debug\Asteroid.pdb
 C:\Users\u1077160\Documents\Rapid Prototyping\Asteroid\Asteroid\obj\Debug\Asteroid.csprojResolveAssemblyReference.cache
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\ApplicationInsights.config
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\csc.exe
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\vbc.exe
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\VBCSCompiler.exe
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Asteroid.dll.config
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Asteroid.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Asteroid.pdb
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.AI.Web.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.ApplicationInsights.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.AI.Web.xml
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.ApplicationInsights.xml
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\obj\Debug\Asteroid.csprojResolveAssemblyReference.cache
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\obj\Debug\Asteroid.dll
+C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\obj\Debug\Asteroid.pdb

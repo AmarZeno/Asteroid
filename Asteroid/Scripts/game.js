@@ -1,7 +1,7 @@
 ﻿/// <reference path="Phaser.js" />
-/// <reference path="Managers/playerManager.js" />
+/// <reference path="Managers/AsteroidManager.js" />
 
-var game = new Phaser.Game(1920, 1080, Phaser.AUTO);
+
 
 var GameState = {
 
@@ -13,18 +13,23 @@ var GameState = {
 
     preload: function () {
         // Load asset
-        playerManagerLoad(this);
-
+        //     playerManagerLoad(this);
+        BackgroundLoad();
+        AsteroidsLoad();
+        
     },
 
     create: function () {
         // Access load asset
-        playerManagerCreate(this);
+        //    playerManagerCreate(this);
+        BackgroundCreate();
+        AsteroidsCreate();
     },
 
     update: function () {
         // Game loop
-        playerManagerUpdate(this);
+    //    playerManagerUpdate(this);
+        AsteroidsUpdate();
     }
 };
 
