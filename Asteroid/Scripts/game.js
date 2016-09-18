@@ -19,7 +19,7 @@ var GameState = {
         // Load asset
         LoadBackground(this);
         playerManagerLoad(this);
-
+        AsteroidsLoad();
     },
 
     create: function () {
@@ -27,11 +27,13 @@ var GameState = {
        // this.background = this.add.sprite(0, 0, 'background');
         drawBackground(this);
         playerManagerCreate(this);
+        AsteroidsCreate();
     },
 
     update: function () {
         // Game loop
         playerManagerUpdate(this);
+        AsteroidsUpdate();
     }
 };
 

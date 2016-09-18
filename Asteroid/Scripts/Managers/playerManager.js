@@ -63,24 +63,10 @@ function capturePlayerActions() {
         this.ship.body.angularVelocity = 0;
     }
 
-    allowShipReflow();
+    screenWrap(this.ship);
 
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
         fireLaser();
-    }
-}
-
-function allowShipReflow() {
-    if (this.ship.x < 0) {
-        this.ship.x = game.width;
-    } else if (this.ship.x > game.width) {
-        this.ship.x = 0;
-    }
-
-    if (this.ship.y < 0) {
-        this.ship.y = game.height;
-    } else if (this.ship.y > game.height) {
-        this.ship.y = 0;
     }
 }
 
