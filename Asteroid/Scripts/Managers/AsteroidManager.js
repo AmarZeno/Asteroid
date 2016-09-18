@@ -1,24 +1,37 @@
-﻿var Asteroid;
+﻿/// <reference path="../phaser.js" />
+
+var Asteroid;
 var Asteroids_Grey;
 var Asteroids_Red;
 var AsteroidTime = 0;
 var RandomCreatePosition;
-var totalexistingAsteroids = 40;
+var totalexistingAsteroids = 20;
 
 AsteroidsLoad = function ()
 {
     game.load.image('Asteroids_Grey', 'Assets/Images/Asteroids_Grey.png');
     game.load.image('Asteroids_Red', 'Assets/Images/Asteroids_Red.png');
+
+    // Temp file names for medium sized asteroids
+    game.load.image('Asteroids_Grey_Med', 'Assets/Images/Asteroids_Grey_Med.png');
+    game.load.image('Asteroids_Red_Med', 'Assets/Images/Asteroids_Red_Med.png');
+
+    // Temp file names for small sized asteroids
+    game.load.image('Asteroids_Grey_Small', 'Assets/Images/Asteroids_Grey_Small.png');
+    game.load.image('Asteroids_Red_Small', 'Assets/Images/Asteroids_Red_Small.png');
+
+    // Load a particle effect for collisions?
 }
 
 /*AsteroidsCreate = function ()
 {
-    Asteroids = game.add.sprite(1920, 1080, 'Asteroids');
-    Asteroids.anchor.set(0.5);
+    Asteroid = game.add.sprite(1920, 1080, 'Asteroids');
+    Asteroid.anchor.set(0.5);
 }*/
 
 AsteroidsCreate = function()
 {
+    // Large asteroids
     Asteroids_Grey = game.add.group();
     Asteroids_Grey.enableBody = true;
     Asteroids_Grey.physicsBodytype = Phaser.Physics.ARCADE;
@@ -27,17 +40,58 @@ AsteroidsCreate = function()
     Asteroids_Red.enableBody = true;
     Asteroids_Red.physicsBodytype = Phaser.Physics.ARCADE;
 
-    game.physics.startSystem(Phaser.Physics.ARCADE);
-
-    game.physics.arcade.enable([Asteroids_Red, Asteroids_Grey]);
-
     Asteroids_Grey.createMultiple(totalexistingAsteroids / 2, 'Asteroids_Grey');
     Asteroids_Grey.setAll('anchor.x', 0.5);
     Asteroids_Grey.setAll('anchor.y', 0.5);
+    Asteroids_Grey.setAll('name', "large_grey");
 
     Asteroids_Red.createMultiple(totalexistingAsteroids / 2, 'Asteroids_Red');
     Asteroids_Red.setAll('anchor.x', 0.5);
     Asteroids_Red.setAll('anchor.y', 0.5);
+    Asteroids_Red.setAll('name', "large_red");
+
+    // Medium asteroidss
+    Asteroids_Grey_Med = game.add.group();
+    Asteroids_Grey_Med.enableBody = true;
+    Asteroids_Grey_Med.physicsBodytype = Phaser.Physics.ARCADE;
+
+    Asteroids_Red_Med = game.add.group();
+    Asteroids_Red_Med.enableBody = true;
+    Asteroids_Red_Med.physicsBodytype = Phaser.Physics.ARCADE;
+
+    Asteroids_Grey_Med.createMultiple(totalexistingAsteroids, 'Asteroids_Grey_Med');
+    Asteroids_Grey_Med.setAll('anchor.x', 0.5);
+    Asteroids_Grey_Med.setAll('anchor.y', 0.5);
+    Asteroids_Grey_Med.setAll('name', "medium_grey");
+
+    Asteroids_Red_Med.createMultiple(totalexistingAsteroids, 'Asteroids_Red_Med');
+    Asteroids_Red_Med.setAll('anchor.x', 0.5);
+    Asteroids_Red_Med.setAll('anchor.y', 0.5);
+    Asteroids_Red_Med.setAll('name', "medium_red");
+
+    // Small asteroids
+    Asteroids_Grey_Small = game.add.group();
+    Asteroids_Grey_Small.enableBody = true;
+    Asteroids_Grey_Small.physicsBodytype = Phaser.Physics.ARCADE;
+
+    Asteroids_Red_Small = game.add.group();
+    Asteroids_Red_Small.enableBody = true;
+    Asteroids_Red_Small.physicsBodytype = Phaser.Physics.ARCADE;
+
+    Asteroids_Grey_Small.createMultiple(totalexistingAsteroids * 2, 'Asteroids_Grey_Small');
+    Asteroids_Grey_Small.setAll('anchor.x', 0.5);
+    Asteroids_Grey_Small.setAll('anchor.y', 0.5);
+    Asteroids_Grey_Small.setAll('name', "small_grey");
+
+    Asteroids_Red_Small.createMultiple(totalexistingAsteroids * 2, 'Asteroids_Red_Small');
+    Asteroids_Red_Small.setAll('anchor.x', 0.5);
+    Asteroids_Red_Small.setAll('anchor.y', 0.5);
+    Asteroids_Red_Small.setAll('name', "small_red");
+
+    // Start physics
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    game.physics.arcade.enable([Asteroids_Red, Asteroids_Grey, Asteroids_Grey_Med, Asteroids_Red_Med, Asteroids_Grey_Small, Asteroids_Red_Small]);
 }
 
 AsteroidsUpdate = function()
@@ -54,8 +108,7 @@ AsteroidsUpdate = function()
         if (Asteroid)
         {
             RandomCreatePosition = Math.random()*4;
-            if (RandomCreatePosition >= 0 && RandomCreatePosition < 1)
-            {
+            if (RandomCreatePosition >= 0 && RandomCreatePosition < 1) {
                 Asteroid.reset(-100, Math.random() * game.height);
                 Asteroid.rotation = Math.random() * Math.PI / 2 - Math.PI / 4;
             }
@@ -72,22 +125,167 @@ AsteroidsUpdate = function()
                 Asteroid.rotation = Math.random() * Math.PI / 2 + Math.PI  * 5 / 4;
             }
       //      Asteroid.reset(500, 400);
-            Asteroid.lifespan = 6000000;
+     //       Asteroid.lifespan = 6000000;
      //       Asteroid.rotation = Math.random()*Math.PI*2;
             game.physics.arcade.velocityFromRotation(Asteroid.rotation, 400, Asteroid.body.velocity);
             AsteroidTime = game.time.now + 200;
         }
     }
+
+    // Collisions
     game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey, AsteroidsCollide, null, this);
     game.physics.arcade.collide(Asteroids_Red, Asteroids_Red, AsteroidsCollide, null, this);
     game.physics.arcade.collide(Asteroids_Grey, Asteroids_Grey, AsteroidsCollide, null, this);
 
+    game.physics.arcade.collide(Asteroids_Grey, Asteroids_Grey_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Grey, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+
+    game.physics.arcade.collide(Asteroids_Grey_Med, Asteroids_Grey_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Grey_Med, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Grey_Small, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+
+    game.physics.arcade.collide(Asteroids_Red, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Red, Asteroids_Red_Small, AsteroidsCollide, null, this);
+
+    game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Red_Small, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Red_Small, Asteroids_Red_Small, AsteroidsCollide, null, this);
+
+    game.physics.arcade.collide(Asteroids_Grey, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Grey, Asteroids_Red_Small, AsteroidsCollide, null, this);
+
+    game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+
+    game.physics.arcade.collide(Asteroids_Grey_Med, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Grey_Med, Asteroids_Red_Small, AsteroidsCollide, null, this);
+
+    game.physics.arcade.collide(Asteroids_Grey_Small, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Grey_Small, Asteroids_Red_Small, AsteroidsCollide, null, this);
+
+    game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Grey_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+
+    game.physics.arcade.collide(Asteroids_Red_Small, Asteroids_Grey_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.collide(Asteroids_Red_Small, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+
+    // Screen wrapping
     Asteroids_Grey.forEachExists(screenWrap, this);
+    Asteroids_Grey_Med.forEachExists(screenWrap, this);
+    Asteroids_Grey_Small.forEachExists(screenWrap, this);
     Asteroids_Red.forEachExists(screenWrap, this);
+    Asteroids_Red_Med.forEachExists(screenWrap, this);
+    Asteroids_Red_Small.forEachExists(screenWrap, this);
 }
 
 function AsteroidsCollide (sprite1 , sprite2)
 {
-    sprite1.kill();
-    sprite2.kill();
+    if (sprite1.name.includes("small")) {
+        sprite1.kill();
+    }
+    else if (sprite1.name.includes("large")) {
+        console.log("test");
+        AsteroidSplitLarge(sprite1);
+    }
+    else if (sprite1.name.includes("medium")) {
+        AsteroidSplitMedium(sprite1);
+    }
+
+    if (sprite2.name.includes("small")) {
+        sprite2.kill();
+    }
+    else if (sprite2.name.includes("large")) {
+        AsteroidSplitLarge(sprite2);
+    }
+    else if (sprite2.name.includes("medium")) {
+        AsteroidSplitMedium(sprite2);
+    }
+}
+
+function AsteroidSplitLarge (sprite)
+{
+    if (sprite.name.includes("grey")) {
+        Asteroid = Asteroids_Grey_Med.getFirstExists(false);
+        Asteroid.reset(sprite.x, sprite.y);
+
+        var newRotation = Math.random() * ((sprite.rotation + Math.PI / 4) - (sprite.rotation - Math.PI / 4)) + (sprite.rotation - Math.PI / 4);
+        Asteroid.rotation = newRotation;
+
+        var newSpeed = sprite.body.speed;
+        game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+
+        Asteroid = Asteroids_Grey_Med.getFirstExists(false);
+        Asteroid.reset(sprite.x, sprite.y);
+
+        var newRotation = newRotation + Math.random() * ((newRotation + Math.PI / 4) - (newRotation - Math.PI / 4)) + (newRotation - Math.PI / 4);
+        Asteroid.rotation = newRotation;
+
+        var newSpeed = Math.random() * ((newSpeed + 100) - (newSpeed - 100)) + (newSpeed - 100);
+        game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+    }
+    else if (sprite.name.includes("red")) {
+        Asteroid = Asteroids_Red_Med.getFirstExists(false);
+        Asteroid.reset(sprite.x, sprite.y);
+
+        var newRotation = Math.random() * ((sprite.rotation + Math.PI / 4) - (sprite.rotation - Math.PI / 4)) + (sprite.rotation - Math.PI / 4);
+        Asteroid.rotation = newRotation;
+
+        var newSpeed = sprite.body.speed;
+        game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+
+        Asteroid = Asteroids_Red_Med.getFirstExists(false);
+        Asteroid.reset(sprite.x, sprite.y);
+
+        var newRotation = newRotation + Math.random() * ((newRotation + Math.PI / 4) - (newRotation - Math.PI / 4)) + (newRotation - Math.PI / 4);
+        Asteroid.rotation = newRotation;
+
+        var newSpeed = Math.random() * ((newSpeed + 100) - (newSpeed - 100)) + (newSpeed - 100);
+        game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+    }
+
+    sprite.kill();
+}
+
+function AsteroidSplitMedium (sprite)
+{
+    if (sprite.name.includes("grey")) {
+        Asteroid = Asteroids_Grey_Small.getFirstExists(false);
+        Asteroid.reset(sprite.x, sprite.y);
+
+        var newRotation = Math.random() * ((sprite.rotation + Math.PI / 4) - (sprite.rotation - Math.PI / 4)) + (sprite.rotation - Math.PI / 4);
+        Asteroid.rotation = newRotation;
+
+        var newSpeed = sprite.body.speed;
+        game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+
+        Asteroid = Asteroids_Grey_Small.getFirstExists(false);
+        Asteroid.reset(sprite.x, sprite.y);
+
+        var newRotation = newRotation + Math.random() * ((newRotation + Math.PI / 4) - (newRotation - Math.PI / 4)) + (newRotation - Math.PI / 4);
+        Asteroid.rotation = newRotation;
+
+        var newSpeed = Math.random() * ((newSpeed + 100) - (newSpeed - 100)) + (newSpeed - 100);
+        game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+    }
+    else if (sprite.name.includes("red")) {
+        Asteroid = Asteroids_Grey_Small.getFirstExists(false);
+        Asteroid.reset(sprite.x, sprite.y);
+
+        var newRotation = Math.random() * ((sprite.rotation + Math.PI / 4) - (sprite.rotation - Math.PI / 4)) + (sprite.rotation - Math.PI / 4);
+        Asteroid.rotation = newRotation;
+
+        var newSpeed = sprite.body.speed;
+        game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+
+        Asteroid = Asteroids_Grey_Small.getFirstExists(false);
+        Asteroid.reset(sprite.x, sprite.y);
+
+        var newRotation = newRotation + Math.random() * ((newRotation + Math.PI / 4) - (newRotation - Math.PI / 4)) + (newRotation - Math.PI / 4);
+        Asteroid.rotation = newRotation;
+
+        var newSpeed = Math.random() * ((newSpeed + 100) - (newSpeed - 100)) + (newSpeed - 100);
+        game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+    }
+
+    sprite.kill();
 }

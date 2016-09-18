@@ -1,4 +1,4 @@
-﻿/// <reference path="Phaser.js" />
+﻿/// <reference path="phaser.js" />
 /// <reference path="Managers/AsteroidManager.js" />
 
 
