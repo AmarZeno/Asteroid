@@ -3,7 +3,7 @@ var Asteroids_Grey;
 var Asteroids_Red;
 var AsteroidTime = 0;
 var RandomCreatePosition;
-var totalexistingAsteroids = 40;
+var totalexistingAsteroids = 10;
 
 AsteroidsLoad = function ()
 {
@@ -58,6 +58,7 @@ AsteroidsUpdate = function()
             {
                 Asteroid.reset(-100, Math.random() * game.height);
                 Asteroid.rotation = Math.random() * Math.PI / 2 - Math.PI / 4;
+                Asteroid.scale.setTo(3);
             }
             else if (RandomCreatePosition >= 1 && RandomCreatePosition < 2) {
                 Asteroid.reset(game.width+100, Math.random() * game.height);
@@ -74,7 +75,7 @@ AsteroidsUpdate = function()
       //      Asteroid.reset(500, 400);
             Asteroid.lifespan = 6000000;
      //       Asteroid.rotation = Math.random()*Math.PI*2;
-            game.physics.arcade.velocityFromRotation(Asteroid.rotation, 400, Asteroid.body.velocity);
+            game.physics.arcade.velocityFromRotation(Asteroid.rotation, 200, Asteroid.body.velocity);
             AsteroidTime = game.time.now + 200;
         }
     }
