@@ -184,7 +184,6 @@ function AsteroidsCollide (sprite1 , sprite2)
         sprite1.kill();
     }
     else if (sprite1.name.includes("large")) {
-        console.log("test");
         AsteroidSplitLarge(sprite1);
     }
     else if (sprite1.name.includes("medium")) {
