@@ -83,8 +83,8 @@ AsteroidsUpdate = function()
     game.physics.arcade.collide(Asteroids_Red, Asteroids_Red, AsteroidsCollide, null, this);
     game.physics.arcade.collide(Asteroids_Grey, Asteroids_Grey, AsteroidsCollide, null, this);
 
-    Asteroids_Grey.forEachExists(screenWrap, this);
-    Asteroids_Red.forEachExists(screenWrap, this);
+    Asteroids_Grey.forEachExists(screenWrap,this,120);
+    Asteroids_Red.forEachExists(screenWrap,this,120);
 }
 
 function AsteroidsCollide (sprite1 , sprite2)

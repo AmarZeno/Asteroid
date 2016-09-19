@@ -63,7 +63,7 @@ function capturePlayerActions() {
         this.ship.body.angularVelocity = 0;
     }
 
-    screenWrap(this.ship);
+    screenWrap(this.ship, 0);
 
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
         fireLaser();
