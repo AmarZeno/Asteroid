@@ -130,3 +130,36 @@ C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\bin\Microsoft.CodeDo
 C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\obj\Debug\Asteroid.csprojResolveAssemblyReference.cache
 C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\obj\Debug\Asteroid.dll
 C:\Users\u1087178\Documents\SecondProject\Asteroid\Asteroid\obj\Debug\Asteroid.pdb
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\ApplicationInsights.config
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\csc.exe
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\vbc.exe
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\VBCSCompiler.exe
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Asteroid.dll.config
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Asteroid.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Asteroid.pdb
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.AI.Web.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.AI.Web.xml
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\obj\Debug\Asteroid.csprojResolveAssemblyReference.cache
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\obj\Debug\Asteroid.dll
+C:\Users\Zephyrus\Google Drive\Grad school\Sem 1 Fall\Rapid Prototyping\Project 2\Asteroid\Asteroid\Asteroid\obj\Debug\Asteroid.pdb
