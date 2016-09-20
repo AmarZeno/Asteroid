@@ -5,7 +5,7 @@ var Asteroids_Grey;
 var Asteroids_Red;
 var AsteroidTime = 0;
 var RandomCreatePosition;
-var totalexistingAsteroids = 16;
+var totalexistingAsteroids = 8;
 
 AsteroidsLoad = function ()
 {
