@@ -125,6 +125,7 @@ function checkLaserCollision() {
 
 function playerRespawn(sprite1, sprite2) {
     AsteroidsCollide(sprite1, sprite2);
+    updateLivesUI();
     this.ship.body.angularVelocity = 0;
     this.ship.x = this.game.world.centerX;
     this.ship.y = this.game.world.centerY;

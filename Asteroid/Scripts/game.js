@@ -34,7 +34,9 @@ var GameState = {
 
     update: function () {
         // Game loop
-        playerManagerUpdate(this);
+        if (!gameOver) {
+            playerManagerUpdate(this);
+        }
         AsteroidsUpdate();
     }
 };

@@ -180,25 +180,36 @@ AsteroidsUpdate = function()
     Asteroids_Red_Small.forEachExists(screenWrap, this);
 }
 
+// UPDATE THE POINTS FOR ASTEROID x ASTEROID COLLISIONS
 function AsteroidsCollide (sprite1 , sprite2)
 {
     if (sprite1.name.includes("small") || sprite1.name == "laser") {
+        if (sprite1.name != "laser") {
+            updateUI(100);
+        }
         sprite1.kill();
     }
     else if (sprite1.name.includes("large")) {
+        updateUI(20);
         AsteroidSplitLarge(sprite1);
     }
     else if (sprite1.name.includes("medium")) {
+        updateUI(50);
         AsteroidSplitMedium(sprite1);
     }
 
     if (sprite2.name.includes("small") || sprite2.name == "laser") {
+        if (sprite2.name != "laser") {
+            updateUI(100);
+        }
         sprite2.kill();
     }
     else if (sprite2.name.includes("large")) {
+        updateUI(20);
         AsteroidSplitLarge(sprite2);
     }
     else if (sprite2.name.includes("medium")) {
+        updateUI(50);
         AsteroidSplitMedium(sprite2);
     }
 }
