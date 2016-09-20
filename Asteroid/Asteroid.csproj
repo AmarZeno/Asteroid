@@ -109,6 +109,7 @@
     <Content Include="Scripts\Managers\asteroidManager.js" />
     <Content Include="Scripts\Managers\configurationManager.js" />
     <Content Include="Scripts\Managers\playerManager.js" />
+    <Content Include="Scripts\Managers\uIManager.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
