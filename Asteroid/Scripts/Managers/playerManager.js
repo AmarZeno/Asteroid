@@ -41,6 +41,7 @@ function addPlayer(thisGame) {
     this.ship = thisGame.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship');
     this.ship.scale.setTo(2);
     this.ship.anchor.setTo(0.5);
+    this.ship.name = "ship";
     // this.ship.anchor
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
 }
@@ -125,11 +126,16 @@ function checkLaserCollision() {
 
 function playerRespawn(sprite1, sprite2) {
     AsteroidsCollide(sprite1, sprite2);
-    updateLivesUI();
-    this.ship.body.angularVelocity = 0;
-    this.ship.x = this.game.world.centerX;
-    this.ship.y = this.game.world.centerY;
-    this.ship.body.acceleration.set(0);
-    this.ship.body.velocity.setTo(0, 0);
-    this.ship.rotation = 0;
+
+    // make sure collision is active for asteroid
+    if ((sprite1.name == "ship" && sprite2.canCollide) || (sprite2.name == "ship" && sprite1.canCollide)) {
+
+        updateLivesUI();
+        this.ship.body.angularVelocity = 0;
+        this.ship.x = this.game.world.centerX;
+        this.ship.y = this.game.world.centerY;
+        this.ship.body.acceleration.set(0);
+        this.ship.body.velocity.setTo(0, 0);
+        this.ship.rotation = 0;
+    }
 }
