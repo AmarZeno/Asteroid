@@ -66,7 +66,6 @@ function capturePlayerActions() {
 
     // Rotation
     if (arrowKeys.left.isDown) {
-        
         this.ship.body.angularVelocity = -300;
     } else if (arrowKeys.right.isDown) {
         this.ship.body.angularVelocity = 300;
@@ -121,7 +120,7 @@ function checkPlayerCollision() {
 
 function checkLaserCollision() {
     if (laser != null) {
-        game.debug.body(laser, 'red', false); game.debug.spriteBounds(this.laser, 'pink', false);
+     //   game.debug.body(laser, 'red', false); game.debug.spriteBounds(this.laser, 'pink', false);
     }
     game.physics.arcade.overlap(this.laser, Asteroids_Red, AsteroidsCollide, null, this);
     game.physics.arcade.overlap(this.laser, Asteroids_Grey, AsteroidsCollide, null, this);
