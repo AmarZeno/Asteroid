@@ -97,7 +97,7 @@ function fireLaser() {
             laser.rotation = this.ship.rotation;
             laser.scale.setTo(0.3);
             game.physics.arcade.velocityFromRotation(this.ship.rotation, 500, laser.body.velocity);
-            laserTime = game.time.now + 50;
+            laserTime = game.time.now + 500;
         }
     }
 }
