@@ -58,7 +58,7 @@ AsteroidsUpdate = function()
             {
                 Asteroid.reset(-100, Math.random() * game.height);
                 Asteroid.rotation = Math.random() * Math.PI / 2 - Math.PI / 4;
-                Asteroid.scale.setTo(3);
+                Asteroid.scale.setTo(5);
             }
             else if (RandomCreatePosition >= 1 && RandomCreatePosition < 2) {
                 Asteroid.reset(game.width+100, Math.random() * game.height);
@@ -79,9 +79,9 @@ AsteroidsUpdate = function()
             AsteroidTime = game.time.now + 200;
         }
     }
-    game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Red, Asteroids_Red, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Grey, Asteroids_Grey, AsteroidsCollide, null, this);
+   // game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey, AsteroidsCollide, null, this);
+ //   game.physics.arcade.collide(Asteroids_Red, Asteroids_Red, AsteroidsCollide, null, this);
+  //  game.physics.arcade.collide(Asteroids_Grey, Asteroids_Grey, AsteroidsCollide, null, this);
 
     Asteroids_Grey.forEachExists(screenWrap,this,120);
     Asteroids_Red.forEachExists(screenWrap,this,120);

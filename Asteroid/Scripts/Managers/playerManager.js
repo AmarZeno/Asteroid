@@ -7,7 +7,7 @@ var arrowKeys;
 var laser;
 var laserCollection;
 var laserTime = 0;
-
+var ship;
 /*
 ENGINE CALLS
 */
@@ -28,6 +28,7 @@ function playerManagerCreate(thisGame) {
 function playerManagerUpdate(thisGame) {
     capturePlayerActions();
     checkPlayerCollision();
+    checkLaserCollision();
 }
 
 
@@ -36,9 +37,10 @@ CUSTOM ACCESSORS
 */
 
 function addPlayer(thisGame) {
-    this.ship = thisGame.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship');
-   // this.ship.scale.setTo(0.1);
-    this.ship.anchor.setTo(0.5);
+   // ship = this.ship;
+    ship = thisGame.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship');
+    ship.scale.setTo(2);
+    ship.anchor.setTo(0.5);
    // this.ship.anchor
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
 }
@@ -50,18 +52,18 @@ function addPlayerControls(thisGame) {
 function capturePlayerActions() {
     // Acceleration
     if (arrowKeys.up.isDown) {
-        game.physics.arcade.accelerationFromRotation(this.ship.rotation, 200, this.ship.body.acceleration);
+        game.physics.arcade.accelerationFromRotation(ship.rotation, 200, ship.body.acceleration);
     } else {
         this.ship.body.acceleration.set(0);
     }
 
     // Rotation
     if (arrowKeys.left.isDown) {
-        this.ship.body.angularVelocity = -300;
+        ship.body.angularVelocity = -300;
     } else if (arrowKeys.right.isDown) {
-        this.ship.body.angularVelocity = 300;
+        ship.body.angularVelocity = 300;
     } else {
-        this.ship.body.angularVelocity = 0;
+        ship.body.angularVelocity = 0;
     }
 
     screenWrap(this.ship, 0);
@@ -89,26 +91,35 @@ function fireLaser() {
         laser = laserCollection.getFirstExists(false);
 
         if (laser) {
-            laser.reset(this.ship.body.x + 16, this.ship.body.y + 16);
+            laser.reset(ship.body.x + 16, this.ship.body.y + 16);
             laser.lifespan = 2000; 
             laser.rotation = this.ship.rotation;
             laser.scale.setTo(0.3);
-            game.physics.arcade.velocityFromRotation(this.ship.rotation, 400, laser.body.velocity);
+            game.physics.arcade.velocityFromRotation(ship.rotation, 400, laser.body.velocity);
             laserTime = game.time.now + 50;
         }
     }
 }
 
+function checkLaserCollision() {
+    game.physics.arcade.collide(laser, Asteroids_Red, destroyAsteroid, null, this);
+    game.physics.arcade.collide(laser, Asteroids_Grey, destroyAsteroid, null, this);
+}
+
+function destroyAsteroid(collidingSprite) {
+    collidingSprite.kill();
+}
+
 function checkPlayerCollision() {
-    game.physics.arcade.collide(this.ship, Asteroids_Red, playerRespawn, null, this);
-    game.physics.arcade.collide(this.ship, Asteroids_Grey, playerRespawn, null, this);
+    game.physics.arcade.collide(ship, Asteroids_Red, playerRespawn, null, this);
+    game.physics.arcade.collide(ship, Asteroids_Grey, playerRespawn, null, this);
 }
 
 function playerRespawn() {
-    this.ship.body.angularVelocity = 0;
-    this.ship.x = this.game.world.centerX;
-    this.ship.y = this.game.world.centerY;
-    this.ship.body.acceleration.set(0);
-    this.ship.body.velocity.setTo(0, 0);
-    this.ship.rotation = 0;
+    ship.body.angularVelocity = 0;
+    ship.x = this.game.world.centerX;
+    ship.y = this.game.world.centerY;
+    ship.body.acceleration.set(0);
+    ship.body.velocity.setTo(0, 0);
+    ship.rotation = 0;
 }
