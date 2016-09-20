@@ -96,7 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\asteroids_grey.png" />
+    <Content Include="Assets\Images\Asteroids_Grey_Med.png" />
+    <Content Include="Assets\Images\Asteroids_Grey_Small.png" />
     <Content Include="Assets\Images\asteroids_red.png" />
+    <Content Include="Assets\Images\Asteroids_Red_Med.png" />
+    <Content Include="Assets\Images\Asteroids_Red_Small.png" />
     <Content Include="Assets\Images\background.jpg" />
     <Content Include="Assets\Images\blue_laser.png" />
     <Content Include="Assets\Images\ship.png" />
