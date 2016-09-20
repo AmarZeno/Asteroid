@@ -39,7 +39,7 @@ CUSTOM ACCESSORS
 
 function addPlayer(thisGame) {
     this.ship = thisGame.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship');
-    // this.ship.scale.setTo(0.1);
+    this.ship.scale.setTo(2);
     this.ship.anchor.setTo(0.5);
     // this.ship.anchor
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
@@ -112,9 +112,9 @@ function checkPlayerCollision() {
 }
 
 function checkLaserCollision() {
-    //if (laser != null) {
-    //    game.debug.body(this.laser, 'red', false); game.debug.spriteBounds(this.laser, 'pink', false);
-    //}
+    if (laser != null) {
+        game.debug.body(laser, 'red', false); game.debug.spriteBounds(this.laser, 'pink', false);
+    }
     game.physics.arcade.overlap(this.laser, Asteroids_Red, AsteroidsCollide, null, this);
     game.physics.arcade.overlap(this.laser, Asteroids_Grey, AsteroidsCollide, null, this);
     game.physics.arcade.overlap(this.laser, Asteroids_Red_Med, AsteroidsCollide, null, this);

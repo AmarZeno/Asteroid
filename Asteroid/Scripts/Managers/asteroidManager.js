@@ -5,7 +5,7 @@ var Asteroids_Grey;
 var Asteroids_Red;
 var AsteroidTime = 0;
 var RandomCreatePosition;
-var totalexistingAsteroids = 8;
+var totalexistingAsteroids = 16;
 
 AsteroidsLoad = function ()
 {
@@ -172,12 +172,12 @@ AsteroidsUpdate = function()
     //game.physics.arcade.collide(Asteroids_Red_Small, Asteroids_Grey_Small, AsteroidsCollide, null, this);
 
     // Screen wrapping
-    Asteroids_Grey.forEachExists(screenWrap, this);
-    Asteroids_Grey_Med.forEachExists(screenWrap, this);
-    Asteroids_Grey_Small.forEachExists(screenWrap, this);
-    Asteroids_Red.forEachExists(screenWrap, this);
-    Asteroids_Red_Med.forEachExists(screenWrap, this);
-    Asteroids_Red_Small.forEachExists(screenWrap, this);
+    Asteroids_Grey.forEachExists(screenWrap, this, 0);
+    Asteroids_Grey_Med.forEachExists(screenWrap, this, 0);
+    Asteroids_Grey_Small.forEachExists(screenWrap, this, 0);
+    Asteroids_Red.forEachExists(screenWrap, this, 0);
+    Asteroids_Red_Med.forEachExists(screenWrap, this, 0);
+    Asteroids_Red_Small.forEachExists(screenWrap, this, 0);
 }
 
 // UPDATE THE POINTS FOR ASTEROID x ASTEROID COLLISIONS
@@ -304,22 +304,4 @@ function AsteroidSplitMedium (sprite)
 
         sprite.kill();
     }
-}
-
-function screenWrap(sprite) {
-
-    if (sprite.x < 0) {
-        sprite.x = game.width;
-    }
-    else if (sprite.x > game.width) {
-        sprite.x = 0;
-    }
-
-    if (sprite.y < 0) {
-        sprite.y = game.height;
-    }
-    else if (sprite.y > game.height) {
-        sprite.y = 0;
-    }
-
 }
