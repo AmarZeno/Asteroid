@@ -44,13 +44,13 @@ AsteroidsCreate = function()
     Asteroids_Grey.setAll('anchor.x', 0.5);
     Asteroids_Grey.setAll('anchor.y', 0.5);
     Asteroids_Grey.setAll('name', "large_grey");
-    Asteroids_Grey.setAll('canCollide', true);
+    //Asteroids_Grey.setAll('canCollide', true);
 
     Asteroids_Red.createMultiple(totalexistingAsteroids / 2, 'Asteroids_Red');
     Asteroids_Red.setAll('anchor.x', 0.5);
     Asteroids_Red.setAll('anchor.y', 0.5);
     Asteroids_Red.setAll('name', "large_red");
-    Asteroids_Red.setAll('canCollide', true);
+    //Asteroids_Red.setAll('canCollide', true);
 
     // Medium asteroidss
     Asteroids_Grey_Med = game.add.group();
@@ -65,13 +65,13 @@ AsteroidsCreate = function()
     Asteroids_Grey_Med.setAll('anchor.x', 0.5);
     Asteroids_Grey_Med.setAll('anchor.y', 0.5);
     Asteroids_Grey_Med.setAll('name', "medium_grey");
-    Asteroids_Grey_Med.setAll('canCollide', true);
+    //Asteroids_Grey_Med.setAll('canCollide', true);
 
     Asteroids_Red_Med.createMultiple(totalexistingAsteroids, 'Asteroids_Red_Med');
     Asteroids_Red_Med.setAll('anchor.x', 0.5);
     Asteroids_Red_Med.setAll('anchor.y', 0.5);
     Asteroids_Red_Med.setAll('name', "medium_red");
-    Asteroids_Red_Med.setAll('canCollide', true);
+    //Asteroids_Red_Med.setAll('canCollide', true);
 
     // Small asteroids
     Asteroids_Grey_Small = game.add.group();
@@ -86,13 +86,13 @@ AsteroidsCreate = function()
     Asteroids_Grey_Small.setAll('anchor.x', 0.5);
     Asteroids_Grey_Small.setAll('anchor.y', 0.5);
     Asteroids_Grey_Small.setAll('name', "small_grey");
-    Asteroids_Grey_Small.setAll('canCollide', true);
+    //Asteroids_Grey_Small.setAll('canCollide', true);
 
     Asteroids_Red_Small.createMultiple(totalexistingAsteroids * 2, 'Asteroids_Red_Small');
     Asteroids_Red_Small.setAll('anchor.x', 0.5);
     Asteroids_Red_Small.setAll('anchor.y', 0.5);
     Asteroids_Red_Small.setAll('name', "small_red");
-    Asteroids_Red_Small.setAll('canCollide', true);
+    //Asteroids_Red_Small.setAll('canCollide', true);
 
     // Start physics
     game.physics.startSystem(Phaser.Physics.ARCADE);
