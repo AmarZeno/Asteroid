@@ -28,7 +28,6 @@ function playerManagerCreate(thisGame) {
 function playerManagerUpdate(thisGame) {
     capturePlayerActions();
     checkPlayerCollision();
-    checkLaserCollision();
 }
 
 
@@ -99,15 +98,6 @@ function fireLaser() {
             laserTime = game.time.now + 50;
         }
     }
-}
-
-function checkLaserCollision() {
-    game.physics.arcade.collide(laser, Asteroids_Red, destroyAsteroid, null, this);
-    game.physics.arcade.collide(laser, Asteroids_Grey, destroyAsteroid, null, this);
-}
-
-function destroyAsteroid(collidingSprite) {
-    collidingSprite.kill();
 }
 
 function checkPlayerCollision() {
