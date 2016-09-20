@@ -14,6 +14,7 @@ ENGINE CALLS
 // Extended system preload method
 function playerManagerLoad(thisGame) {
     thisGame.load.image('ship', 'Assets/Images/ship.png');
+    thisGame.load.spritesheet('ship_sprite', 'Assets/Images/ship_sprite.png', 60, 30, 5);
     thisGame.load.image('laser', 'Assets/Images/blue_laser.png');
     //thisGame.OVERLAP_BIAS = 50;
 }
@@ -38,9 +39,13 @@ CUSTOM ACCESSORS
 */
 
 function addPlayer(thisGame) {
-    this.ship = thisGame.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship');
+    this.ship = thisGame.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship_sprite');
     this.ship.scale.setTo(2);
     this.ship.anchor.setTo(0.5);
+    var accelerate = this.ship.animations.add("accelerate");
+    this.ship.animations.add('normal', [0], 30, true);
+    this.ship.animations.add('accelerate', [1, 2, 3, 4], 30, true);
+    this.ship.animations.play('normal');
     // this.ship.anchor
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
 }
@@ -53,12 +58,15 @@ function capturePlayerActions() {
     // Acceleration
     if (arrowKeys.up.isDown) {
         game.physics.arcade.accelerationFromRotation(this.ship.rotation, 200, this.ship.body.acceleration);
+        this.ship.animations.play('accelerate');
     } else {
         this.ship.body.acceleration.set(0);
+        this.ship.animations.play('normal');
     }
 
     // Rotation
     if (arrowKeys.left.isDown) {
+        
         this.ship.body.angularVelocity = -300;
     } else if (arrowKeys.right.isDown) {
         this.ship.body.angularVelocity = 300;
