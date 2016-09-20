@@ -20,6 +20,7 @@ var GameState = {
         LoadBackground(this);
         playerManagerLoad(this);
         AsteroidsLoad();
+        preloadUI(this);
     },
 
     create: function () {
@@ -28,11 +29,14 @@ var GameState = {
         drawBackground(this);
         playerManagerCreate(this);
         AsteroidsCreate();
+        initUI(this);
     },
 
     update: function () {
         // Game loop
-        playerManagerUpdate(this);
+        if (!gameOver) {
+            playerManagerUpdate(this);
+        }
         AsteroidsUpdate();
     }
 };
