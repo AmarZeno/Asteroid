@@ -208,33 +208,41 @@ AsteroidsUpdate = function()
 function AsteroidsCollide (sprite1 , sprite2)
 {
 
-    if ((sprite1.name.includes("small") || sprite1.name == "laser") && sprite1.canCollide) {
-        if (sprite1.name != "laser") {
+    if ((sprite1.name.includes("small") && sprite1.canCollide) || sprite1.name == "laser") {
+        if (sprite1.name == "ship") {
             updateUI(100);
         }
         sprite1.kill();
     }
     else if (sprite1.name.includes("large") && sprite1.canCollide) {
-        updateUI(20);
+        if (sprite1.name == "ship") {
+            updateUI(20);
+        }
         AsteroidSplitLarge(sprite1);
     }
     else if (sprite1.name.includes("medium") && sprite1.canCollide) {
-        updateUI(50);
+        if (sprite1.name == "ship") {
+            updateUI(50);
+        }
         AsteroidSplitMedium(sprite1);
     }
 
-    if ((sprite2.name.includes("small") || sprite2.name == "laser") && sprite2.canCollide) {
-        if (sprite2.name != "laser") {
+    if ((sprite2.name.includes("small") && sprite2.canCollide) || sprite2.name == "laser") {
+        if (sprite2.name == "ship") {
             updateUI(100);
         }
         sprite2.kill();
     }
     else if (sprite2.name.includes("large") && sprite2.canCollide) {
-        updateUI(20);
+        if (sprite2.name == "ship") {
+            updateUI(20);
+        }
         AsteroidSplitLarge(sprite2);
     }
     else if (sprite2.name.includes("medium") && sprite2.canCollide) {
-        updateUI(50);
+        if (sprite2.name == "ship") {
+            updateUI(50);
+        }
         AsteroidSplitMedium(sprite2);
     }
 }
@@ -341,7 +349,7 @@ function AsteroidSplitMedium (sprite)
 
 function checkBirthTime(currentAsteroid) {
 
-    if (game.time.now >= currentAsteroid.birthTime + 300) { // the int value being added represents the amount of time until the asteroid can collide
+    if (game.time.now >= currentAsteroid.birthTime + 600) { // the int value being added represents the amount of time until the asteroid can collide
         currentAsteroid.canCollide = true;
     }
 }
