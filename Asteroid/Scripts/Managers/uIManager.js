@@ -11,7 +11,7 @@ var life3;
 var life4;
 var life5;
 
-var currentLives = 5;
+var currentLives = 100;
 
 preloadUI = function (thisGame) {
     thisGame.load.image('life', 'Assets/Images/ship.png');
@@ -42,6 +42,7 @@ updateUI = function (points) {
 }
 
 updateLivesUI = function () {
+
     currentLives--;
 
     if (currentLives == 4) {
