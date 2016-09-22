@@ -104,6 +104,7 @@
     <Content Include="Assets\Images\Asteroids_Red_Med.png" />
     <Content Include="Assets\Images\Asteroids_Red_Small.png" />
     <Content Include="Assets\Images\background.jpg" />
+    <Content Include="Assets\Images\background.png" />
     <Content Include="Assets\Images\blue_laser.png" />
     <Content Include="Assets\Images\ship.png" />
     <Content Include="Assets\Images\ship_sprite.png" />

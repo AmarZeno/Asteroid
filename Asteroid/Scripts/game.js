@@ -53,7 +53,7 @@ CUSTOM ACCESSORS
 */
 
 function LoadBackground(thisGame) {
-    thisGame.load.image('background', 'Assets/Images/background.jpg');
+    thisGame.load.image('background', 'Assets/Images/background.png');
 }
 
 function drawBackground(thisGame) {
