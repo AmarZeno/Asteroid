@@ -36,60 +36,74 @@ AsteroidsCreate = function()
     Asteroids_Grey.enableBody = true;
     Asteroids_Grey.physicsBodytype = Phaser.Physics.ARCADE;
 
+
     Asteroids_Red = game.add.group();
     Asteroids_Red.enableBody = true;
     Asteroids_Red.physicsBodytype = Phaser.Physics.ARCADE;
+
 
     Asteroids_Grey.createMultiple(totalexistingAsteroids / 2, 'Asteroids_Grey');
     Asteroids_Grey.setAll('anchor.x', 0.5);
     Asteroids_Grey.setAll('anchor.y', 0.5);
     Asteroids_Grey.setAll('name', "large_grey");
+  
+    
 
     Asteroids_Red.createMultiple(totalexistingAsteroids / 2, 'Asteroids_Red');
     Asteroids_Red.setAll('anchor.x', 0.5);
     Asteroids_Red.setAll('anchor.y', 0.5);
     Asteroids_Red.setAll('name', "large_red");
 
+
     // Medium asteroidss
     Asteroids_Grey_Med = game.add.group();
     Asteroids_Grey_Med.enableBody = true;
     Asteroids_Grey_Med.physicsBodytype = Phaser.Physics.ARCADE;
 
+
     Asteroids_Red_Med = game.add.group();
     Asteroids_Red_Med.enableBody = true;
     Asteroids_Red_Med.physicsBodytype = Phaser.Physics.ARCADE;
+
 
     Asteroids_Grey_Med.createMultiple(totalexistingAsteroids, 'Asteroids_Grey_Med');
     Asteroids_Grey_Med.setAll('anchor.x', 0.5);
     Asteroids_Grey_Med.setAll('anchor.y', 0.5);
     Asteroids_Grey_Med.setAll('name', "medium_grey");
+    
 
     Asteroids_Red_Med.createMultiple(totalexistingAsteroids, 'Asteroids_Red_Med');
     Asteroids_Red_Med.setAll('anchor.x', 0.5);
     Asteroids_Red_Med.setAll('anchor.y', 0.5);
     Asteroids_Red_Med.setAll('name', "medium_red");
+    
 
     // Small asteroids
     Asteroids_Grey_Small = game.add.group();
     Asteroids_Grey_Small.enableBody = true;
     Asteroids_Grey_Small.physicsBodytype = Phaser.Physics.ARCADE;
 
+
     Asteroids_Red_Small = game.add.group();
     Asteroids_Red_Small.enableBody = true;
     Asteroids_Red_Small.physicsBodytype = Phaser.Physics.ARCADE;
+
 
     Asteroids_Grey_Small.createMultiple(totalexistingAsteroids * 2, 'Asteroids_Grey_Small');
     Asteroids_Grey_Small.setAll('anchor.x', 0.5);
     Asteroids_Grey_Small.setAll('anchor.y', 0.5);
     Asteroids_Grey_Small.setAll('name', "small_grey");
+    
 
     Asteroids_Red_Small.createMultiple(totalexistingAsteroids * 2, 'Asteroids_Red_Small');
     Asteroids_Red_Small.setAll('anchor.x', 0.5);
     Asteroids_Red_Small.setAll('anchor.y', 0.5);
     Asteroids_Red_Small.setAll('name', "small_red");
+    
 
     // Start physics
     game.physics.startSystem(Phaser.Physics.ARCADE);
+ 
 
     game.physics.arcade.enable([Asteroids_Red, Asteroids_Grey, Asteroids_Grey_Med, Asteroids_Red_Med, Asteroids_Grey_Small, Asteroids_Red_Small]);
 
@@ -124,7 +138,8 @@ AsteroidsCreate = function()
                 //      Asteroid.reset(500, 400);
                 //       Asteroid.lifespan = 6000000;
                 //       Asteroid.rotation = Math.random()*Math.PI*2;
-                game.physics.arcade.velocityFromRotation(Asteroid.rotation, 150, Asteroid.body.velocity);
+            Asteroid.body.mass = 10;
+            game.physics.arcade.velocityFromRotation(Asteroid.rotation, 150, Asteroid.body.velocity);
             //    AsteroidTime = game.time.now + 200;
             //}
         }
@@ -234,6 +249,7 @@ function AsteroidSplitLarge (sprite)
 
         var newSpeed = Math.random() * ((newSpeed + 100) - (newSpeed - 100)) + (newSpeed - 100);
         game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+        Asteroid.body.mass = 5;
 
         sprite.kill();
     }
@@ -255,9 +271,11 @@ function AsteroidSplitLarge (sprite)
 
         var newSpeed = Math.random() * ((newSpeed + 100) - (newSpeed - 100)) + (newSpeed - 100);
         game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+        Asteroid.body.mass = 5;
 
         sprite.kill();
     }
+    
 }
 
 function AsteroidSplitMedium (sprite)
@@ -301,7 +319,20 @@ function AsteroidSplitMedium (sprite)
 
         var newSpeed = Math.random() * ((newSpeed + 100) - (newSpeed - 100)) + (newSpeed - 100);
         game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+        Asteroid.body.mass = 1;
 
         sprite.kill();
+    }
+}
+
+function ShootAsteroids (sprite1, sprite2)
+{
+    if (this.ship.Ispushing == true)
+    {
+        sprite2.rotation = sprite1.rotation;
+        //sprite2.body.velocity = sprite1.body.force / sprite2.body.mass;
+        var pushedspeed = sprite1.body.force / sprite2.body.mass;
+        game.physics.arcade.velocityFromRotation(sprite1.rotation, pushedspeed, sprite2.body.velocity);
+        sprite1.kill();
     }
 }

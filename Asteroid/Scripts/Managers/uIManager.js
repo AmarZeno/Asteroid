@@ -9,10 +9,13 @@ var life1;
 var life2;
 var life3;
 
-var currentLives = 3;
+var currentLives = 100;
+var currenthealth = 100;
+var healthbar;
 
 preloadUI = function (thisGame) {
     thisGame.load.image('life', 'Assets/Images/ship.png');
+    thisGame.load.image('healthbar', 'Assets/Images/healthbar.png');
 }
 
 initUI = function (thisGame) {
@@ -28,6 +31,7 @@ initUI = function (thisGame) {
     life2.rotation = Math.PI * 3 / 2;
     life3 = thisGame.add.sprite(110, 150, 'life');
     life3.rotation = Math.PI * 3 / 2;
+    healthbar = thisGame.add.sprite(150, 150, 'healthbar');
 }
 
 updateUI = function (points) {
@@ -48,5 +52,24 @@ updateLivesUI = function () {
         life1.visible = false;
         deathText.setText("Game Over");
         gameOver = true;
+    }
+}
+
+function updateHealth(add, number)
+{
+    if(add == true)
+    {
+        currenthealth += number;
+        if (currenthealth >= 100)
+            currenthealth = 100;
+    }
+    else
+    {
+       currenthealth -= number;
+       if (currenthealth <= 0) {
+           currenthealth = 0;
+           deathText.setText("Game Over");
+           gameOver = true;
+       }
     }
 }

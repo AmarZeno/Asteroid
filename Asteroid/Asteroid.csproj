@@ -102,8 +102,10 @@
     <Content Include="Assets\Images\Asteroids_Red_Med.png" />
     <Content Include="Assets\Images\Asteroids_Red_Small.png" />
     <Content Include="Assets\Images\background.jpg" />
+    <Content Include="Assets\Images\bigstar.jpg" />
     <Content Include="Assets\Images\blue_laser.png" />
     <Content Include="Assets\Images\ship.png" />
+    <Content Include="Assets\Images\star.jpg" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -112,6 +114,7 @@
     <Content Include="Scripts\game.js" />
     <Content Include="Scripts\Managers\asteroidManager.js" />
     <Content Include="Scripts\Managers\configurationManager.js" />
+    <Content Include="Scripts\Managers\pickupManager.js" />
     <Content Include="Scripts\Managers\playerManager.js" />
     <Content Include="Scripts\Managers\uIManager.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />

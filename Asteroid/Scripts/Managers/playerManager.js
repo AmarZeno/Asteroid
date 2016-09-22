@@ -41,6 +41,7 @@ function addPlayer(thisGame) {
     this.ship = thisGame.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship');
     this.ship.scale.setTo(2);
     this.ship.anchor.setTo(0.5);
+    this.ship.Ispushing = true;
     // this.ship.anchor
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
 }
@@ -96,6 +97,7 @@ function fireLaser() {
             laser.lifespan = 2000;
             laser.rotation = this.ship.rotation;
             laser.scale.setTo(0.3);
+            laser.body.force = 1000;
             game.physics.arcade.velocityFromRotation(this.ship.rotation, 500, laser.body.velocity);
             laserTime = game.time.now + 500;
         }
@@ -109,18 +111,28 @@ function checkPlayerCollision() {
     game.physics.arcade.collide(this.ship, Asteroids_Grey_Med, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, Asteroids_Red_Small, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, Asteroids_Grey_Small, playerRespawn, null, this);
+    game.physics.arcade.collide(this.ship, NormalPickups, EatingNormalPickups, null, this);
+    game.physics.arcade.collide(this.ship, SwitchModePickups, EatingSwitchModePickups, null, this);
 }
 
 function checkLaserCollision() {
+    laser = laserCollection.getFirstExists(true);
     if (laser != null) {
         game.debug.body(laser, 'red', false); game.debug.spriteBounds(this.laser, 'pink', false);
     }
-    game.physics.arcade.overlap(this.laser, Asteroids_Red, AsteroidsCollide, null, this);
-    game.physics.arcade.overlap(this.laser, Asteroids_Grey, AsteroidsCollide, null, this);
-    game.physics.arcade.overlap(this.laser, Asteroids_Red_Med, AsteroidsCollide, null, this);
-    game.physics.arcade.overlap(this.laser, Asteroids_Grey_Med, AsteroidsCollide, null, this);
-    game.physics.arcade.overlap(this.laser, Asteroids_Red_Small, AsteroidsCollide, null, this);
-    game.physics.arcade.overlap(this.laser, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+   /* game.physics.arcade.overlap(laser, Asteroids_Red, AsteroidsCollide, null, this);
+    game.physics.arcade.overlap(laser, Asteroids_Grey, AsteroidsCollide, null, this);
+    game.physics.arcade.overlap(laser, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.overlap(laser, Asteroids_Grey_Med, AsteroidsCollide, null, this);
+    game.physics.arcade.overlap(laser, Asteroids_Red_Small, AsteroidsCollide, null, this);
+    game.physics.arcade.overlap(laser, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+    */
+    game.physics.arcade.overlap(laser, Asteroids_Red, ShootAsteroids, null, this);
+    game.physics.arcade.overlap(laser, Asteroids_Grey, ShootAsteroids, null, this);
+    game.physics.arcade.overlap(laser, Asteroids_Red_Med, ShootAsteroids, null, this);
+    game.physics.arcade.overlap(laser, Asteroids_Grey_Med, ShootAsteroids, null, this);
+    game.physics.arcade.overlap(laser, Asteroids_Red_Small, ShootAsteroids, null, this);
+    game.physics.arcade.overlap(laser, Asteroids_Grey_Small, ShootAsteroids, null, this);
 }
 
 function playerRespawn(sprite1, sprite2) {
