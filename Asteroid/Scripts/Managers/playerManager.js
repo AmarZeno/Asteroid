@@ -23,6 +23,7 @@ function playerManagerLoad(thisGame) {
 function playerManagerCreate(thisGame) {
     addPlayer(thisGame);
     addPlayerControls(thisGame);
+    addBackgroundSoundEffects(thisGame);
     createLaserCollection();
 }
 

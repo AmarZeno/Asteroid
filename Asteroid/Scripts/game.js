@@ -1,6 +1,7 @@
 ﻿/// <reference path="Phaser.js" />
 /// <reference path="Managers/configurationManager.js" />
 /// <reference path="Managers/playerManager.js" />
+/// <reference path="Managers/audioManager.js" />
 
 var game = new Phaser.Game(1920, 1080, Phaser.AUTO);
 
@@ -21,6 +22,7 @@ var GameState = {
         playerManagerLoad(this);
         AsteroidsLoad();
         preloadUI(this);
+        audioManagerLoad(this);
     },
 
     create: function () {
@@ -30,6 +32,7 @@ var GameState = {
         playerManagerCreate(this);
         AsteroidsCreate();
         initUI(this);
+        audioManagerCreate(this);
     },
 
     update: function () {
@@ -38,6 +41,7 @@ var GameState = {
             playerManagerUpdate(this);
         }
         AsteroidsUpdate();
+        audioManagerUpdate(this);
     }
 };
 

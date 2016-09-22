@@ -95,6 +95,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Audio\engine_loop.mp3" />
+    <Content Include="Assets\Audio\engine_sound_initial.mp3" />
     <Content Include="Assets\Images\asteroids_grey.png" />
     <Content Include="Assets\Images\Asteroids_Grey_Med.png" />
     <Content Include="Assets\Images\Asteroids_Grey_Small.png" />
@@ -112,6 +114,7 @@
     <Content Include="Scripts\Commons\commonUtilities.js" />
     <Content Include="Scripts\game.js" />
     <Content Include="Scripts\Managers\asteroidManager.js" />
+    <Content Include="Scripts\Managers\audioManager.js" />
     <Content Include="Scripts\Managers\configurationManager.js" />
     <Content Include="Scripts\Managers\playerManager.js" />
     <Content Include="Scripts\Managers\uIManager.js" />
@@ -139,7 +142,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Audio\" />
     <Folder Include="Assets\Fonts\" />
     <Folder Include="Styles\" />
   </ItemGroup>
