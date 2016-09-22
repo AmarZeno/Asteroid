@@ -8,8 +8,10 @@ var gameOver;
 var life1;
 var life2;
 var life3;
+var life4;
+var life5;
 
-var currentLives = 3;
+var currentLives = 5;
 
 preloadUI = function (thisGame) {
     thisGame.load.image('life', 'Assets/Images/ship.png');
@@ -28,6 +30,10 @@ initUI = function (thisGame) {
     life2.rotation = Math.PI * 3 / 2;
     life3 = thisGame.add.sprite(110, 150, 'life');
     life3.rotation = Math.PI * 3 / 2;
+    life4 = thisGame.add.sprite(150, 150, 'life')
+    life4.rotation = Math.PI * 3 / 2;
+    life5 = thisGame.add.sprite(190, 150, 'life')
+    life5.rotation = Math.PI * 3 / 2;
 }
 
 updateUI = function (points) {
@@ -38,7 +44,13 @@ updateUI = function (points) {
 updateLivesUI = function () {
     currentLives--;
 
-    if (currentLives == 2) {
+    if (currentLives == 4) {
+        life5.visible = false;
+    }
+    else if (currentLives == 3) {
+        life4.visible = false;
+    }
+    else if (currentLives == 2) {
         life3.visible = false;
     }
     else if (currentLives == 1) {
