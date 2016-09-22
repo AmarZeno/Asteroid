@@ -58,7 +58,7 @@ function addPlayerControls(thisGame) {
 function capturePlayerActions() {
     // Acceleration
     if (arrowKeys.up.isDown) {
-        game.physics.arcade.accelerationFromRotation(this.ship.rotation, 200, this.ship.body.acceleration);
+        game.physics.arcade.accelerationFromRotation(this.ship.rotation, 300, this.ship.body.acceleration);
         this.ship.animations.play('accelerate');
     } else {
         this.ship.body.acceleration.set(0);
@@ -101,10 +101,10 @@ function fireLaser() {
 
         if (laser) {
             laser.reset(this.ship.body.x + 16, this.ship.body.y + 16);
+            laser.scale.setTo(0.3);
             laser.lifespan = 2000;
             laser.rotation = this.ship.rotation;
-            laser.scale.setTo(0.3);
-            game.physics.arcade.velocityFromRotation(this.ship.rotation, 500, laser.body.velocity);
+            game.physics.arcade.velocityFromRotation(this.ship.rotation, 600, laser.body.velocity);
             laserTime = game.time.now + 500;
         }
     }
