@@ -7,8 +7,7 @@ var AsteroidTime = 0;
 var RandomCreatePosition;
 var totalexistingAsteroids = 12;
 
-AsteroidsLoad = function ()
-{
+AsteroidsLoad = function () {
     game.load.image('Asteroids_Grey', 'Assets/Images/Asteroids_Grey.png');
     game.load.image('Asteroids_Red', 'Assets/Images/Asteroids_Red.png');
 
@@ -29,8 +28,7 @@ AsteroidsLoad = function ()
     Asteroid.anchor.set(0.5);
 }*/
 
-AsteroidsCreate = function()
-{
+AsteroidsCreate = function () {
     // Large asteroids
     Asteroids_Grey = game.add.group();
     Asteroids_Grey.enableBody = false;
@@ -110,44 +108,43 @@ AsteroidsCreate = function()
     for (var i = 0; i < totalexistingAsteroids; i++) {
 
         //if (game.time.now > AsteroidTime) {
-            var AsteroidsType = Math.random() * 2;
+        var AsteroidsType = Math.random() * 2;
 
-            if (AsteroidsType >= 0 && AsteroidsType < 1)
-                Asteroid = Asteroids_Grey.getFirstExists(false);
-            else
-                Asteroid = Asteroids_Red.getFirstExists(false);
+        if (AsteroidsType >= 0 && AsteroidsType < 1)
+            Asteroid = Asteroids_Grey.getFirstExists(false);
+        else
+            Asteroid = Asteroids_Red.getFirstExists(false);
 
-            if (Asteroid != null) {
-                RandomCreatePosition = Math.random() * 4;
-                if (RandomCreatePosition >= 0 && RandomCreatePosition < 1) {
-                    Asteroid.reset(-100, Math.random() * game.height);
-                    Asteroid.rotation = Math.random() * Math.PI / 2 - Math.PI / 4;
-                }
-                else if (RandomCreatePosition >= 1 && RandomCreatePosition < 2) {
-                    Asteroid.reset(game.width + 100, Math.random() * game.height);
-                    Asteroid.rotation = Math.random() * Math.PI / 2 + Math.PI * 3 / 4;
-                }
-                else if (RandomCreatePosition >= 2 && RandomCreatePosition < 3) {
-                    Asteroid.reset(Math.random() * game.width, -100);
-                    Asteroid.rotation = Math.random() * Math.PI / 2 + Math.PI / 4;
-                }
-                else if (RandomCreatePosition >= 3 && RandomCreatePosition < 4) {
-                    Asteroid.reset(Math.random() * game.width, game.height + 100);
-                    Asteroid.rotation = Math.random() * Math.PI / 2 + Math.PI * 5 / 4;
-                }
-                //      Asteroid.reset(500, 400);
-                //       Asteroid.lifespan = 6000000;
-                //       Asteroid.rotation = Math.random()*Math.PI*2;
-                game.physics.arcade.velocityFromRotation(Asteroid.rotation, 150, Asteroid.body.velocity);
-                Asteroid.birthTime = game.time.now;
+        if (Asteroid != null) {
+            RandomCreatePosition = Math.random() * 4;
+            if (RandomCreatePosition >= 0 && RandomCreatePosition < 1) {
+                Asteroid.reset(-100, Math.random() * game.height);
+                Asteroid.rotation = Math.random() * Math.PI / 2 - Math.PI / 4;
+            }
+            else if (RandomCreatePosition >= 1 && RandomCreatePosition < 2) {
+                Asteroid.reset(game.width + 100, Math.random() * game.height);
+                Asteroid.rotation = Math.random() * Math.PI / 2 + Math.PI * 3 / 4;
+            }
+            else if (RandomCreatePosition >= 2 && RandomCreatePosition < 3) {
+                Asteroid.reset(Math.random() * game.width, -100);
+                Asteroid.rotation = Math.random() * Math.PI / 2 + Math.PI / 4;
+            }
+            else if (RandomCreatePosition >= 3 && RandomCreatePosition < 4) {
+                Asteroid.reset(Math.random() * game.width, game.height + 100);
+                Asteroid.rotation = Math.random() * Math.PI / 2 + Math.PI * 5 / 4;
+            }
+            //      Asteroid.reset(500, 400);
+            //       Asteroid.lifespan = 6000000;
+            //       Asteroid.rotation = Math.random()*Math.PI*2;
+            game.physics.arcade.velocityFromRotation(Asteroid.rotation, 150, Asteroid.body.velocity);
+            Asteroid.birthTime = game.time.now;
             //    AsteroidTime = game.time.now + 200;
             //}
         }
     }
 }
 
-AsteroidsUpdate = function()
-{
+AsteroidsUpdate = function () {
 
     // Collisions
     game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey, AsteroidsCollide, null, this);
@@ -205,42 +202,48 @@ AsteroidsUpdate = function()
 }
 
 // UPDATE THE POINTS FOR ASTEROID x ASTEROID COLLISIONS
-function AsteroidsCollide (sprite1 , sprite2)
-{
+function AsteroidsCollide(sprite1, sprite2) {
 
-    if ((sprite1.name.includes("small") || sprite1.name == "laser") && sprite1.canCollide) {
-        if (sprite1.name != "laser") {
+    if ((sprite1.name.includes("small") && sprite1.canCollide) || sprite1.name == "laser") {
+        if (sprite1.name == "ship") {
             updateUI(100);
         }
         sprite1.kill();
     }
     else if (sprite1.name.includes("large") && sprite1.canCollide) {
-        updateUI(20);
+        if (sprite1.name == "ship") {
+            updateUI(20);
+        }
         AsteroidSplitLarge(sprite1);
     }
     else if (sprite1.name.includes("medium") && sprite1.canCollide) {
-        updateUI(50);
+        if (sprite1.name == "ship") {
+            updateUI(50);
+        }
         AsteroidSplitMedium(sprite1);
     }
 
-    if ((sprite2.name.includes("small") || sprite2.name == "laser") && sprite2.canCollide) {
-        if (sprite2.name != "laser") {
+    if ((sprite2.name.includes("small") && sprite2.canCollide) || sprite2.name == "laser") {
+        if (sprite2.name == "ship") {
             updateUI(100);
         }
         sprite2.kill();
     }
     else if (sprite2.name.includes("large") && sprite2.canCollide) {
-        updateUI(20);
+        if (sprite2.name == "ship") {
+            updateUI(20);
+        }
         AsteroidSplitLarge(sprite2);
     }
     else if (sprite2.name.includes("medium") && sprite2.canCollide) {
-        updateUI(50);
+        if (sprite2.name == "ship") {
+            updateUI(50);
+        }
         AsteroidSplitMedium(sprite2);
     }
 }
 
-function AsteroidSplitLarge (sprite)
-{
+function AsteroidSplitLarge(sprite) {
     if (sprite.name.includes("grey")) {
         Asteroid = Asteroids_Grey_Med.getFirstExists(false);
         Asteroid.reset(sprite.x, sprite.y);
@@ -289,8 +292,7 @@ function AsteroidSplitLarge (sprite)
     }
 }
 
-function AsteroidSplitMedium (sprite)
-{
+function AsteroidSplitMedium(sprite) {
     if (sprite.name.includes("grey")) {
         Asteroid = Asteroids_Grey_Small.getFirstExists(false);
         Asteroid.reset(sprite.x, sprite.y);
@@ -341,7 +343,7 @@ function AsteroidSplitMedium (sprite)
 
 function checkBirthTime(currentAsteroid) {
 
-    if (game.time.now >= currentAsteroid.birthTime + 300) { // the int value being added represents the amount of time until the asteroid can collide
+    if (game.time.now >= currentAsteroid.birthTime + 600) { // the int value being added represents the amount of time until the asteroid can collide
         currentAsteroid.canCollide = true;
     }
 }
