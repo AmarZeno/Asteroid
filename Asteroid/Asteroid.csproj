@@ -95,13 +95,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Images\asteroids_grey.png" />
+    <Content Include="Assets\Audio\engine_loop.mp3" />
+    <Content Include="Assets\Audio\engine_sound_initial.mp3" />
+    <Content Include="Assets\Images\Asteroids_Grey.png" />
     <Content Include="Assets\Images\Asteroids_Grey_Med.png" />
     <Content Include="Assets\Images\Asteroids_Grey_Small.png" />
     <Content Include="Assets\Images\asteroids_red.png" />
     <Content Include="Assets\Images\Asteroids_Red_Med.png" />
     <Content Include="Assets\Images\Asteroids_Red_Small.png" />
     <Content Include="Assets\Images\background.jpg" />
+    <Content Include="Assets\Images\background.png" />
     <Content Include="Assets\Images\blue_laser.png" />
     <Content Include="Assets\Images\ship.png" />
     <Content Include="Assets\Images\ship_sprite.png" />
@@ -112,10 +115,14 @@
     <Content Include="Scripts\Commons\commonUtilities.js" />
     <Content Include="Scripts\game.js" />
     <Content Include="Scripts\Managers\asteroidManager.js" />
+    <Content Include="Scripts\Managers\audioManager.js" />
     <Content Include="Scripts\Managers\configurationManager.js" />
     <Content Include="Scripts\Managers\playerManager.js" />
     <Content Include="Scripts\Managers\uIManager.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Assets\Audio\engine_loop.ogg" />
+    <Content Include="Assets\Audio\engine_sound_inital.ogg" />
+    <None Include="Properties\PublishProfiles\smedashboard.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -139,7 +146,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Audio\" />
     <Folder Include="Assets\Fonts\" />
     <Folder Include="Styles\" />
   </ItemGroup>
@@ -161,8 +167,7 @@
           <IISUrl>http://localhost:2658/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://smedashboard.azurewebsites.net/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

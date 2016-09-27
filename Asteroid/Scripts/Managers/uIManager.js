@@ -43,6 +43,7 @@ updateUI = function () {
 }
 
 updateLivesUI = function () {
+
     currentLives--;
 
     if (currentLives == 4) {
