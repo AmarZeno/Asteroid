@@ -22,7 +22,11 @@ var GameState = {
         playerManagerLoad(this);
         AsteroidsLoad();
         preloadUI(this);
+
+       // PickupsLoad();
+
         audioManagerLoad(this);
+
     },
 
     create: function () {
@@ -31,6 +35,7 @@ var GameState = {
         drawBackground(this);
         playerManagerCreate(this);
         AsteroidsCreate();
+      //  PickupsCreate();
         initUI(this);
         audioManagerCreate(this);
     },
@@ -39,7 +44,12 @@ var GameState = {
         // Game loop
         if (!gameOver) {
             playerManagerUpdate(this);
+
             updateUI();
+
+           // NormalPickupsUpdate();
+          //  SwitchModePickupsUpdate();
+
         }
         AsteroidsUpdate();
         audioManagerUpdate(this);
