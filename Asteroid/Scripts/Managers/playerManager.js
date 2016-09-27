@@ -83,8 +83,9 @@ function capturePlayerActions() {
 
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && laserTime < game.time.now) {
         fireLaser();
-    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-      //  fireLaser();
+        if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+            //  fireLaser();
+        }
     }
 }
 
@@ -125,8 +126,6 @@ function fireLaser() {
 function checkPlayerCollision() {
     game.physics.arcade.collide(this.ship, Asteroids_Grey, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, Asteroids_Grey_Med, playerRespawn, null, this);
-    game.physics.arcade.collide(this.ship, Asteroids_Grey, playerRespawn, null, this);
-    game.physics.arcade.collide(this.ship, Asteroids_Grey_Med, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, Asteroids_Grey_Small, playerRespawn, null, this);
 }
 
@@ -135,8 +134,6 @@ function checkLaserCollision() {
     if (laser != null) {
      //   game.debug.body(laser, 'red', false); game.debug.spriteBounds(this.laser, 'pink', false);
     }
-    game.physics.arcade.overlap(this.laser, Asteroids_Grey, AsteroidsCollide, null, this);
-    game.physics.arcade.overlap(this.laser, Asteroids_Grey_Med, AsteroidsCollide, null, this);
     game.physics.arcade.overlap(this.laser, Asteroids_Grey, AsteroidsCollide, null, this);
     game.physics.arcade.overlap(this.laser, Asteroids_Grey_Med, AsteroidsCollide, null, this);
     game.physics.arcade.overlap(this.laser, Asteroids_Grey_Small, AsteroidsCollide, null, this);

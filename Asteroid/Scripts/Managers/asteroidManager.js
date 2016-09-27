@@ -18,23 +18,17 @@ AsteroidsLoad = function () {
 
     // Temp file names for small sized asteroids
     game.load.image('Asteroids_Grey_Small', 'Assets/Images/Asteroids_Grey_Small.png');
-    var totalexistingAsteroids = 8;
+    var totalexistingAsteroids = 18;
 }
 
 
 AsteroidsLoad = function () {
     game.load.image('Asteroids_Grey', 'Assets/Images/Asteroids_Grey_Large.png');
- //   game.load.image('Asteroids_Red', 'Assets/Images/Asteroids_Red.png');
 
-    // Temp file names for medium sized asteroids
     game.load.image('Asteroids_Grey_Med', 'Assets/Images/Asteroids_Grey_Med.png');
- //   game.load.image('Asteroids_Red_Med', 'Assets/Images/Asteroids_Red_Med.png');
 
-    // Temp file names for small sized asteroids
     game.load.image('Asteroids_Grey_Small', 'Assets/Images/Asteroids_Grey_Small.png');
-  //  game.load.image('Asteroids_Red_Small', 'Assets/Images/Asteroids_Red_Small.png');
 
-    // Load a particle effect for collisions?
 }
 
 /*AsteroidsCreate = function ()
@@ -124,14 +118,11 @@ AsteroidsCreate = function () {
             //      Asteroid.reset(500, 400);
             //       Asteroid.lifespan = 6000000;
             //       Asteroid.rotation = Math.random()*Math.PI*2;
-            game.physics.arcade.velocityFromRotation(Asteroid.rotation, 375, Asteroid.body.velocity);
-            Asteroid.body.bounce.set(1);
+            Asteroid.body.bounce.set(0.95);
             Asteroid.body.mass = 500;
             Asteroid.health = 6;
-            Asteroid.scale.setTo(1.5);
+            //Asteroid.scale.setTo(1.5);
             game.physics.arcade.velocityFromRotation(Asteroid.rotation, 200, Asteroid.body.velocity);
-            Asteroid.body.bounce.set(1);
-            Asteroid.health = 8;
            // Asteroid.scale.setTo(0.5);
             Asteroid.birthTime = game.time.now;
             //    AsteroidTime = game.time.now + 200;
@@ -249,8 +240,8 @@ function AsteroidSplitLarge(sprite) {
     Asteroid.rotation = newRotation;
 
     var newSpeed = sprite.body.speed;
-    game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
-    Asteroid.body.bounce.set(1);
+    //game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
+    Asteroid.body.bounce.set(0.9);
     Asteroid.body.mass = 200;
     Asteroid.health = 3;
     Asteroid.scale.setTo(1.7);
@@ -262,12 +253,12 @@ function AsteroidSplitLarge(sprite) {
     var newRotation = newRotation + Math.random() * ((newRotation + Math.PI / 4) - (newRotation - Math.PI / 4)) + (newRotation - Math.PI / 4);
     Asteroid.rotation = newRotation;
 
-    var newSpeed = Math.random() * ((newSpeed + 100) - (newSpeed - 100)) + (newSpeed - 100);
+    var newSpeed = Math.random() * ((newSpeed + 50) - (newSpeed - 50)) + (newSpeed - 50);
     game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
-    Asteroid.body.bounce.set(1);
+    Asteroid.body.bounce.set(0.9);
     Asteroid.body.mass = 200;
     Asteroid.health = 3;
-    Asteroid.scale.setTo(1.7);
+    //Asteroid.scale.setTo(1.7);
 
     sprite.kill();
    
@@ -283,10 +274,10 @@ function AsteroidSplitMedium(sprite) {
 
     var newSpeed = sprite.body.speed;
     game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
-    Asteroid.body.bounce.set(1);
+    Asteroid.body.bounce.set(0.9);
     Asteroid.body.mass = 50;
     Asteroid.health = 2;
-    Asteroid.scale.setTo(2);
+    //Asteroid.scale.setTo(2);
 
     Asteroid = Asteroids_Grey_Small.getFirstExists(false);
     Asteroid.reset(sprite.x, sprite.y);
@@ -295,12 +286,12 @@ function AsteroidSplitMedium(sprite) {
     var newRotation = newRotation + Math.random() * ((newRotation + Math.PI / 4) - (newRotation - Math.PI / 4)) + (newRotation - Math.PI / 4);
     Asteroid.rotation = newRotation;
 
-    var newSpeed = Math.random() * ((newSpeed + 100) - (newSpeed - 100)) + (newSpeed - 100);
+    var newSpeed = Math.random() * ((newSpeed + 50) - (newSpeed - 50)) + (newSpeed - 50);
     game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
-    Asteroid.body.bounce.set(1);
+    Asteroid.body.bounce.set(0.9);
     Asteroid.body.mass = 50;
     Asteroid.health = 2;
-    Asteroid.scale.setTo(2);
+    //Asteroid.scale.setTo(2);
 
     sprite.kill();
 
