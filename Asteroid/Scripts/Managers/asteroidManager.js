@@ -5,7 +5,7 @@ var Asteroids_Grey;
 var Asteroids_Red;
 var AsteroidTime = 0;
 var RandomCreatePosition;
-var totalexistingAsteroids = 18;
+var totalexistingAsteroids = 10;
 
 
 AsteroidsLoad = function () {
@@ -140,8 +140,9 @@ AsteroidsCreate = function () {
             game.physics.arcade.velocityFromRotation(Asteroid.rotation, 275, Asteroid.body.velocity);
             Asteroid.body.bounce.set(1);
             Asteroid.health = 8;
-            Asteroid.scale.setTo(0.5);
+          //  Asteroid.scale.setTo(0.5);
             Asteroid.birthTime = game.time.now;
+            Asteroid.body.mass = 10;
             //    AsteroidTime = game.time.now + 200;
             //}
         }
@@ -313,6 +314,7 @@ function AsteroidSplitLarge(sprite) {
         Asteroid.body.bounce.set(1);
         Asteroid.health = 5;
         Asteroid.birthTime = game.time.now;
+        Asteroid.body.mass = 5;
 
         sprite.kill();
     }
@@ -340,6 +342,7 @@ function AsteroidSplitLarge(sprite) {
         Asteroid.body.bounce.set(1);
         Asteroid.health = 5;
         Asteroid.birthTime = game.time.now;
+        Asteroid.body.mass = 5;
 
         sprite.kill();
     }
@@ -370,6 +373,7 @@ function AsteroidSplitMedium(sprite) {
         Asteroid.body.bounce.set(1);
         Asteroid.health = 2;
         Asteroid.birthTime = game.time.now;
+        Asteroid.body.mass = 1;
 
         sprite.kill();
     }
@@ -397,6 +401,7 @@ function AsteroidSplitMedium(sprite) {
         Asteroid.body.bounce.set(1);
         Asteroid.health = 2;
         Asteroid.birthTime = game.time.now;
+        Asteroid.body.mass = 1;
 
         sprite.kill();
     }
@@ -406,5 +411,15 @@ function checkBirthTime(currentAsteroid) {
 
     if (game.time.now >= currentAsteroid.birthTime + 400) { // the int value being added represents the amount of time until the asteroid can collide
         currentAsteroid.canCollide = true;
+    }
+}
+
+function ShootAsteroids(sprite1, sprite2) {
+    if (this.ship.Ispushing == true) {
+        sprite2.rotation = sprite1.rotation;
+        //sprite2.body.velocity = sprite1.body.force / sprite2.body.mass;
+        var pushedspeed = sprite1.body.force / sprite2.body.mass;
+        game.physics.arcade.velocityFromRotation(sprite1.rotation, pushedspeed, sprite2.body.velocity);
+        sprite1.kill();
     }
 }

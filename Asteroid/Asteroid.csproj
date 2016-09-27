@@ -113,6 +113,7 @@
     <Content Include="Scripts\game.js" />
     <Content Include="Scripts\Managers\asteroidManager.js" />
     <Content Include="Scripts\Managers\configurationManager.js" />
+    <Content Include="Scripts\Managers\pickupManager.js" />
     <Content Include="Scripts\Managers\playerManager.js" />
     <Content Include="Scripts\Managers\uIManager.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
