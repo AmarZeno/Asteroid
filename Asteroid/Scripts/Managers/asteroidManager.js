@@ -155,7 +155,6 @@ AsteroidsCreate = function () {
             Asteroid.body.mass = 500;
            // Asteroid.scale.setTo(0.5);
             Asteroid.birthTime = game.time.now;
-            Asteroid.body.mass = 10;
             //    AsteroidTime = game.time.now + 200;
             //}
         }
@@ -330,7 +329,6 @@ function AsteroidSplitLarge(sprite) {
         Asteroid.body.mass = 200;
         Asteroid.health = 5;
         Asteroid.birthTime = game.time.now;
-        Asteroid.body.mass = 5;
 
         sprite.kill();
     }
@@ -391,7 +389,6 @@ function AsteroidSplitMedium(sprite) {
         Asteroid.body.mass = 75;
         Asteroid.health = 2;
         Asteroid.birthTime = game.time.now;
-        Asteroid.body.mass = 1;
 
         sprite.kill();
     }
