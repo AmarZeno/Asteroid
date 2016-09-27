@@ -1,9 +1,9 @@
 ﻿/// <reference path="../phaser.js" />
 
-var score;
 var displayText;
 var deathText;
 var gameOver;
+var clock;
 
 var life1;
 var life2;
@@ -11,7 +11,7 @@ var life3;
 var life4;
 var life5;
 
-var currentLives = 5;
+var currentLives = 5000;
 
 preloadUI = function (thisGame) {
     thisGame.load.image('life', 'Assets/Images/ship.png');
@@ -20,9 +20,10 @@ preloadUI = function (thisGame) {
 initUI = function (thisGame) {
     score = 0;
     gameOver = false;
-    displayText = thisGame.add.text(50, 50, score, { font: "50px Verdana", fill: "#ffffff", align: "center" });
+    displayText = thisGame.add.text(50, 50, clock, { font: "50px Verdana", fill: "#ffffff", align: "center" });
     deathText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY, "", { font: "70px Verdana", fill: "#ffffff", align: "left" });
     deathText.anchor.set(0.5);
+    clock = game.time.now;
 
     life1 = thisGame.add.sprite(30, 150, 'life');
     life1.rotation = Math.PI * 3 / 2;
@@ -36,9 +37,9 @@ initUI = function (thisGame) {
     life5.rotation = Math.PI * 3 / 2;
 }
 
-updateUI = function (points) {
-    score += points;
-    displayText.setText(score);
+updateUI = function () {
+    clock = game.time.now
+    displayText.setText(clock/1000);
 }
 
 updateLivesUI = function () {
