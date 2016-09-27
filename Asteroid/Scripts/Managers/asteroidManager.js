@@ -356,7 +356,6 @@ function AsteroidSplitLarge(sprite) {
         var newSpeed = Math.random() * ((newSpeed + 100) - (newSpeed - 100)) + (newSpeed - 100);
         game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
         Asteroid.body.bounce.set(1);
->>>>>>> 01a403e60c74399c484c2117acff768faf6cc902
         Asteroid.health = 5;
         Asteroid.birthTime = game.time.now;
         Asteroid.body.mass = 5;
@@ -403,11 +402,10 @@ function checkBirthTime(currentAsteroid) {
     if (game.time.now >= currentAsteroid.birthTime + 400) { // the int value being added represents the amount of time until the asteroid can collide
         currentAsteroid.canCollide = true;
     }
-<<<<<<< HEAD
 
     else if (currentAsteroid.name.includes("small") && game.time.now >= currentAsteroid.birthTime + asteroidDecay) {
         currentAsteroid.kill();
-=======
+    }
 }
 
 function ShootAsteroids(sprite1, sprite2) {
@@ -417,6 +415,5 @@ function ShootAsteroids(sprite1, sprite2) {
         var pushedspeed = sprite1.body.force / sprite2.body.mass;
         game.physics.arcade.velocityFromRotation(sprite1.rotation, pushedspeed, sprite2.body.velocity);
         sprite1.kill();
->>>>>>> 01a403e60c74399c484c2117acff768faf6cc902
     }
 }
