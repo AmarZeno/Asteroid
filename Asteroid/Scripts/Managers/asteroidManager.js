@@ -215,7 +215,6 @@ AsteroidsUpdate = function () {
     //Asteroids_Red.forEachExists(checkBirthTime, this);
     //Asteroids_Red_Med.forEachExists(checkBirthTime, this);
     //Asteroids_Red_Small.forEachExists(checkBirthTime, this);
-
 }
 
 function AsteroidsCollide(sprite1, sprite2) {
