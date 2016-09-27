@@ -54,6 +54,7 @@ function addPlayer(thisGame) {
     this.ship = thisGame.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship_sprite');
     this.ship.scale.setTo(2);
     this.ship.anchor.setTo(0.5);
+    this.ship.Ispushing = true;
     var accelerate = this.ship.animations.add("accelerate");
     this.ship.animations.add('normal', [0], 30, true);
     this.ship.animations.add('accelerate', [1, 2, 3, 4], 30, true);
@@ -64,6 +65,7 @@ function addPlayer(thisGame) {
     
     // this.ship.anchor
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
+    this.ship.body.mass = 50;
 }
 
 function addPlayerControls(thisGame) {
@@ -140,7 +142,11 @@ function fireLaser() {
             laser.scale.setTo(0.3);
             laser.lifespan = 2000;
             laser.rotation = this.ship.rotation;
+
+          //  laser.body.force = 1000;
+
             game.physics.arcade.velocityFromRotation(this.ship.rotation, 1500, laser.body.velocity);
+
             laserTime = game.time.now + 500;
         }
     }

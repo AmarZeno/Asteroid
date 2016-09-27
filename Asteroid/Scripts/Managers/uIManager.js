@@ -6,6 +6,9 @@ var displayText;
 var deathText;
 let gameOver;
 
+var currentTime = 0;
+
+
 var currentLives = 5;
 
 preloadUI = function (thisGame) {
@@ -16,15 +19,15 @@ preloadUI = function (thisGame) {
 initUI = function (thisGame) {
     score = 0;
     gameOver = false;
-    displayText = thisGame.add.text(50, 50, score, { font: "50px Verdana", fill: "#ffffff", align: "center" });
+    displayText = thisGame.add.text(50, 50, currentTime, { font: "50px Verdana", fill: "#ffffff", align: "center" });
     deathText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY, "", { font: "70px Verdana", fill: "#ffffff", align: "left" });
     deathText.anchor.set(0.5);
     createHealthBar(thisGame);
 }
 
-updateUI = function (points) {
-    score += points;
-    displayText.setText(score);
+updateUI = function () {
+    currentTime = game.time.now;
+    displayText.setText(currentTime/1000);
 }
 
 createHealthBar = function (thisGame) {
