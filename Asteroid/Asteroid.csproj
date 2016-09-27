@@ -122,6 +122,7 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Assets\Audio\engine_loop.ogg" />
     <Content Include="Assets\Audio\engine_sound_inital.ogg" />
+    <None Include="Properties\PublishProfiles\smedashboard.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -166,8 +167,7 @@
           <IISUrl>http://localhost:2658/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://smedashboard.azurewebsites.net/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
