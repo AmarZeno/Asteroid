@@ -9,7 +9,7 @@ var totalexistingAsteroids = 8;
 
 
 AsteroidsLoad = function () {
-    game.load.image('Asteroids_Grey', 'Assets/Images/Asteroids_Grey.png');
+    game.load.image('Asteroids_Grey', 'Assets/Images/Asteroids_Grey_Large.png');
  //   game.load.image('Asteroids_Red', 'Assets/Images/Asteroids_Red.png');
 
     // Temp file names for medium sized asteroids
