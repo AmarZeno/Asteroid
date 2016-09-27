@@ -77,7 +77,7 @@ function capturePlayerActions() {
 
     screenWrap(this.ship, 0);
 
-    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && laserTime < game.time.now) {
         fireLaser();
     }
 }
@@ -90,10 +90,13 @@ function createLaserCollection() {
     laserCollection.physicsBodyType = Phaser.Physics.ARCADE;
 
     //  Create one set of shooting at at time
-    laserCollection.createMultiple(1, 'laser');
+    laserCollection.createMultiple(10, 'laser');
     laserCollection.setAll('anchor.x', 0.5);
     laserCollection.setAll('anchor.y', 0.5);
     laserCollection.setAll('name', "laser");
+    //laserCollection.setAll('scale.x', 0.3);
+    //laserCollection.setAll('scale.y', 0.3);
+    //laserCollection.body.updateBounds(laser.scale.x, laser.scale.y);
 }
 
 function fireLaser() {
@@ -102,11 +105,11 @@ function fireLaser() {
 
         if (laser) {
             laser.reset(this.ship.body.x + 16, this.ship.body.y + 16);
-            laser.scale.setTo(0.3);
             laser.lifespan = 2000;
             laser.rotation = this.ship.rotation;
             game.physics.arcade.velocityFromRotation(this.ship.rotation, 600, laser.body.velocity);
-            laserTime = game.time.now + 500;
+            laserTime = game.time.now + 400;
+            laser.scale.setTo(0.3);
         }
     }
 }
