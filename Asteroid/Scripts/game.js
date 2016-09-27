@@ -39,6 +39,7 @@ var GameState = {
         // Game loop
         if (!gameOver) {
             playerManagerUpdate(this);
+            updateUI();
         }
         AsteroidsUpdate();
         audioManagerUpdate(this);
