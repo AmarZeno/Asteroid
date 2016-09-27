@@ -10,15 +10,15 @@ var totalexistingAsteroids = 8;
 
 AsteroidsLoad = function () {
     game.load.image('Asteroids_Grey', 'Assets/Images/Asteroids_Grey.png');
-    game.load.image('Asteroids_Red', 'Assets/Images/Asteroids_Red.png');
+ //   game.load.image('Asteroids_Red', 'Assets/Images/Asteroids_Red.png');
 
     // Temp file names for medium sized asteroids
     game.load.image('Asteroids_Grey_Med', 'Assets/Images/Asteroids_Grey_Med.png');
-    game.load.image('Asteroids_Red_Med', 'Assets/Images/Asteroids_Red_Med.png');
+ //   game.load.image('Asteroids_Red_Med', 'Assets/Images/Asteroids_Red_Med.png');
 
     // Temp file names for small sized asteroids
     game.load.image('Asteroids_Grey_Small', 'Assets/Images/Asteroids_Grey_Small.png');
-    game.load.image('Asteroids_Red_Small', 'Assets/Images/Asteroids_Red_Small.png');
+  //  game.load.image('Asteroids_Red_Small', 'Assets/Images/Asteroids_Red_Small.png');
 
     // Load a particle effect for collisions?
 }
@@ -35,11 +35,12 @@ AsteroidsCreate = function () {
     Asteroids_Grey.enableBody = false;
     Asteroids_Grey.physicsBodytype = Phaser.Physics.ARCADE;
 
-    Asteroids_Red = game.add.group();
-    Asteroids_Red.enableBody = false;
-    Asteroids_Red.physicsBodytype = Phaser.Physics.ARCADE;
+    //Asteroids_Red = game.add.group();
+    //Asteroids_Red.enableBody = false;
+    //Asteroids_Red.physicsBodytype = Phaser.Physics.ARCADE;
 
     Asteroids_Grey.createMultiple(totalexistingAsteroids, 'Asteroids_Grey');
+    Asteroids_Grey.scale.setTo(1.5);
     Asteroids_Grey.setAll('anchor.x', 0.5);
     Asteroids_Grey.setAll('anchor.y', 0.5);
     Asteroids_Grey.setAll('name', "large_grey");
@@ -47,74 +48,82 @@ AsteroidsCreate = function () {
     Asteroids_Grey.setAll('birthTime', 0);
     Asteroids_Grey.setAll('sprite.body.enable', false);
 
-    Asteroids_Red.createMultiple(totalexistingAsteroids, 'Asteroids_Red');
-    Asteroids_Red.setAll('anchor.x', 0.5);
-    Asteroids_Red.setAll('anchor.y', 0.5);
-    Asteroids_Red.setAll('name', "large_red");
-    Asteroids_Red.setAll('canCollide', false);
-    Asteroids_Red.setAll('birthTime', 0);
-    Asteroids_Red.setAll('sprite.body.enable', false);
+    
+    //Asteroids_Red.createMultiple(totalexistingAsteroids, 'Asteroids_Red');
+    //Asteroids_Red.scale.setTo(1.5);
+    //Asteroids_Red.setAll('anchor.x', 0.5);
+    //Asteroids_Red.setAll('anchor.y', 0.5);
+    //Asteroids_Red.setAll('name', "large_red");
+    //Asteroids_Red.setAll('canCollide', false);
+    //Asteroids_Red.setAll('birthTime', 0);
+    //Asteroids_Red.setAll('sprite.body.enable', false);
 
     // Medium asteroids
     Asteroids_Grey_Med = game.add.group();
     Asteroids_Grey_Med.enableBody = false;
     Asteroids_Grey_Med.physicsBodytype = Phaser.Physics.ARCADE;
 
-    Asteroids_Red_Med = game.add.group();
-    Asteroids_Red_Med.enableBody = false;
-    Asteroids_Red_Med.physicsBodytype = Phaser.Physics.ARCADE;
+    //Asteroids_Red_Med = game.add.group();
+    //Asteroids_Red_Med.enableBody = false;
+    //Asteroids_Red_Med.physicsBodytype = Phaser.Physics.ARCADE;
 
     Asteroids_Grey_Med.createMultiple(totalexistingAsteroids * 2, 'Asteroids_Grey_Med');
+    Asteroids_Grey_Med.scale.setTo(2);
     Asteroids_Grey_Med.setAll('anchor.x', 0.5);
     Asteroids_Grey_Med.setAll('anchor.y', 0.5);
     Asteroids_Grey_Med.setAll('name', "medium_grey");
     Asteroids_Grey_Med.setAll('canCollide', false);
     Asteroids_Grey_Med.setAll('birthTime', 0);
 
-    Asteroids_Red_Med.createMultiple(totalexistingAsteroids * 2, 'Asteroids_Red_Med');
-    Asteroids_Red_Med.setAll('anchor.x', 0.5);
-    Asteroids_Red_Med.setAll('anchor.y', 0.5);
-    Asteroids_Red_Med.setAll('name', "medium_red");
-    Asteroids_Red_Med.setAll('canCollide', false);
-    Asteroids_Red_Med.setAll('birthTime', 0);
+    //Asteroids_Red_Med.createMultiple(totalexistingAsteroids * 2, 'Asteroids_Red_Med');
+    //Asteroids_Red_Med.scale.setTo(2);
+    //Asteroids_Red_Med.setAll('anchor.x', 0.5);
+    //Asteroids_Red_Med.setAll('anchor.y', 0.5);
+    //Asteroids_Red_Med.setAll('name', "medium_red");
+    //Asteroids_Red_Med.setAll('canCollide', false);
+    //Asteroids_Red_Med.setAll('birthTime', 0);
 
     // Small asteroids
     Asteroids_Grey_Small = game.add.group();
     Asteroids_Grey_Small.enableBody = false;
     Asteroids_Grey_Small.physicsBodytype = Phaser.Physics.ARCADE;
 
-    Asteroids_Red_Small = game.add.group();
-    Asteroids_Red_Small.enableBody = false;
-    Asteroids_Red_Small.physicsBodytype = Phaser.Physics.ARCADE;
+    //Asteroids_Red_Small = game.add.group();
+    //Asteroids_Red_Small.enableBody = false;
+    //Asteroids_Red_Small.physicsBodytype = Phaser.Physics.ARCADE;
 
     Asteroids_Grey_Small.createMultiple(totalexistingAsteroids * 4, 'Asteroids_Grey_Small');
+    Asteroids_Grey_Small.scale.setTo(3);
     Asteroids_Grey_Small.setAll('anchor.x', 0.5);
     Asteroids_Grey_Small.setAll('anchor.y', 0.5);
     Asteroids_Grey_Small.setAll('name', "small_grey");
     Asteroids_Grey_Small.setAll('canCollide', false);
     Asteroids_Grey_Small.setAll('birthTime', 0);
 
-    Asteroids_Red_Small.createMultiple(totalexistingAsteroids * 4, 'Asteroids_Red_Small');
-    Asteroids_Red_Small.setAll('anchor.x', 0.5);
-    Asteroids_Red_Small.setAll('anchor.y', 0.5);
-    Asteroids_Red_Small.setAll('name', "small_red");
-    Asteroids_Red_Small.setAll('canCollide', false);
-    Asteroids_Red_Small.setAll('birthTime', 0);
+    //Asteroids_Red_Small.createMultiple(totalexistingAsteroids * 4, 'Asteroids_Red_Small');
+    //Asteroids_Red_Small.scale.setTo(3);
+    //Asteroids_Red_Small.setAll('anchor.x', 0.5);
+    //Asteroids_Red_Small.setAll('anchor.y', 0.5);
+    //Asteroids_Red_Small.setAll('name', "small_red");
+    //Asteroids_Red_Small.setAll('canCollide', false);
+    //Asteroids_Red_Small.setAll('birthTime', 0);
+   // Asteroids_Red_Small.scale.setTo(2);
 
     // Start physics
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    game.physics.arcade.enable([Asteroids_Red, Asteroids_Grey, Asteroids_Grey_Med, Asteroids_Red_Med, Asteroids_Grey_Small, Asteroids_Red_Small]);
+ //   game.physics.arcade.enable([Asteroids_Red, Asteroids_Grey, Asteroids_Grey_Med, Asteroids_Red_Med, Asteroids_Grey_Small, Asteroids_Red_Small]);
+    game.physics.arcade.enable([Asteroids_Grey, Asteroids_Grey_Med, Asteroids_Grey_Small]);
 
     for (var i = 0; i < totalexistingAsteroids; i++) {
 
         //if (game.time.now > AsteroidTime) {
-        var AsteroidsType = Math.random() * 2;
+       // var AsteroidsType = Math.random() * 2;
 
-        if (AsteroidsType >= 0 && AsteroidsType < 1)
+      //  if (AsteroidsType >= 0 && AsteroidsType < 1)
             Asteroid = Asteroids_Grey.getFirstExists(false);
-        else
-            Asteroid = Asteroids_Red.getFirstExists(false);
+      //  else
+          //  Asteroid = Asteroids_Red.getFirstExists(false);
 
         if (Asteroid != null) {
             RandomCreatePosition = Math.random() * 4;
@@ -151,8 +160,8 @@ AsteroidsCreate = function () {
 AsteroidsUpdate = function () {
 
     // Collisions
-    game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Red, Asteroids_Red, AsteroidsCollide, null, this);
+  //  game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey, AsteroidsCollide, null, this);
+  //  game.physics.arcade.collide(Asteroids_Red, Asteroids_Red, AsteroidsCollide, null, this);
     game.physics.arcade.collide(Asteroids_Grey, Asteroids_Grey, AsteroidsCollide, null, this);
 
     game.physics.arcade.collide(Asteroids_Grey, Asteroids_Grey_Med, AsteroidsCollide, null, this);
@@ -162,46 +171,46 @@ AsteroidsUpdate = function () {
     game.physics.arcade.collide(Asteroids_Grey_Med, Asteroids_Grey_Small, AsteroidsCollide, null, this);
     game.physics.arcade.collide(Asteroids_Grey_Small, Asteroids_Grey_Small, AsteroidsCollide, null, this);
 
-    game.physics.arcade.collide(Asteroids_Red, Asteroids_Red_Med, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Red, Asteroids_Red_Small, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red, Asteroids_Red_Small, AsteroidsCollide, null, this);
 
-    game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Red_Med, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Red_Small, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Red_Small, Asteroids_Red_Small, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Red_Small, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red_Small, Asteroids_Red_Small, AsteroidsCollide, null, this);
 
-    game.physics.arcade.collide(Asteroids_Grey, Asteroids_Red_Med, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Grey, Asteroids_Red_Small, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Grey, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Grey, Asteroids_Red_Small, AsteroidsCollide, null, this);
 
-    game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey_Med, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey_Med, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red, Asteroids_Grey_Small, AsteroidsCollide, null, this);
 
-    game.physics.arcade.collide(Asteroids_Grey_Med, Asteroids_Red_Med, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Grey_Med, Asteroids_Red_Small, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Grey_Med, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Grey_Med, Asteroids_Red_Small, AsteroidsCollide, null, this);
 
-    game.physics.arcade.collide(Asteroids_Grey_Small, Asteroids_Red_Med, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Grey_Small, Asteroids_Red_Small, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Grey_Small, Asteroids_Red_Med, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Grey_Small, Asteroids_Red_Small, AsteroidsCollide, null, this);
 
-    game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Grey_Med, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Grey_Med, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red_Med, Asteroids_Grey_Small, AsteroidsCollide, null, this);
 
-    game.physics.arcade.collide(Asteroids_Red_Small, Asteroids_Grey_Med, AsteroidsCollide, null, this);
-    game.physics.arcade.collide(Asteroids_Red_Small, Asteroids_Grey_Small, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red_Small, Asteroids_Grey_Med, AsteroidsCollide, null, this);
+    //game.physics.arcade.collide(Asteroids_Red_Small, Asteroids_Grey_Small, AsteroidsCollide, null, this);
 
     // Screen wrapping
     Asteroids_Grey.forEachExists(screenWrap, this, 0);
     Asteroids_Grey_Med.forEachExists(screenWrap, this, 0);
     Asteroids_Grey_Small.forEachExists(screenWrap, this, 0);
-    Asteroids_Red.forEachExists(screenWrap, this, 0);
-    Asteroids_Red_Med.forEachExists(screenWrap, this, 0);
-    Asteroids_Red_Small.forEachExists(screenWrap, this, 0);
+    //Asteroids_Red.forEachExists(screenWrap, this, 0);
+    //Asteroids_Red_Med.forEachExists(screenWrap, this, 0);
+    //Asteroids_Red_Small.forEachExists(screenWrap, this, 0);
 
     // update if asteroids can collide
     Asteroids_Grey.forEachExists(checkBirthTime, this);
     Asteroids_Grey_Med.forEachExists(checkBirthTime, this);
     Asteroids_Grey_Small.forEachExists(checkBirthTime, this);
-    Asteroids_Red.forEachExists(checkBirthTime, this);
-    Asteroids_Red_Med.forEachExists(checkBirthTime, this);
-    Asteroids_Red_Small.forEachExists(checkBirthTime, this);
+    //Asteroids_Red.forEachExists(checkBirthTime, this);
+    //Asteroids_Red_Med.forEachExists(checkBirthTime, this);
+    //Asteroids_Red_Small.forEachExists(checkBirthTime, this);
 
 }
 
