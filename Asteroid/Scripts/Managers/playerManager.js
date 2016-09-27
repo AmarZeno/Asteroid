@@ -49,7 +49,7 @@ function addPlayer(thisGame) {
     this.ship.name = "ship";
     // this.ship.anchor
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
-    this.ship.body.mass = 75;
+    this.ship.body.mass = 125;
 }
 
 function addPlayerControls(thisGame) {
