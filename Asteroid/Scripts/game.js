@@ -1,6 +1,7 @@
 ﻿/// <reference path="Phaser.js" />
 /// <reference path="Managers/configurationManager.js" />
 /// <reference path="Managers/playerManager.js" />
+/// <reference path="Managers/audioManager.js" />
 
 var game = new Phaser.Game(1920, 1080, Phaser.AUTO);
 
@@ -21,7 +22,11 @@ var GameState = {
         playerManagerLoad(this);
         AsteroidsLoad();
         preloadUI(this);
-        PickupsLoad();
+
+       // PickupsLoad();
+
+        audioManagerLoad(this);
+
     },
 
     create: function () {
@@ -30,18 +35,20 @@ var GameState = {
         drawBackground(this);
         playerManagerCreate(this);
         AsteroidsCreate();
-        PickupsCreate();
+      //  PickupsCreate();
         initUI(this);
+        audioManagerCreate(this);
     },
 
     update: function () {
         // Game loop
         if (!gameOver) {
             playerManagerUpdate(this);
-            NormalPickupsUpdate();
-            SwitchModePickupsUpdate();
+           // NormalPickupsUpdate();
+          //  SwitchModePickupsUpdate();
         }
         AsteroidsUpdate();
+        audioManagerUpdate(this);
     }
 };
 
@@ -53,7 +60,7 @@ CUSTOM ACCESSORS
 */
 
 function LoadBackground(thisGame) {
-    thisGame.load.image('background', 'Assets/Images/background.jpg');
+    thisGame.load.image('background', 'Assets/Images/background.png');
 }
 
 function drawBackground(thisGame) {
