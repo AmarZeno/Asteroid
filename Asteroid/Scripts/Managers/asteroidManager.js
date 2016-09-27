@@ -40,7 +40,7 @@ AsteroidsCreate = function () {
     //Asteroids_Red.physicsBodytype = Phaser.Physics.ARCADE;
 
     Asteroids_Grey.createMultiple(totalexistingAsteroids, 'Asteroids_Grey');
-    Asteroids_Grey.scale.setTo(1.5);
+    Asteroids_Grey.scale.setTo(1);
     Asteroids_Grey.setAll('anchor.x', 0.5);
     Asteroids_Grey.setAll('anchor.y', 0.5);
     Asteroids_Grey.setAll('name', "large_grey");
@@ -68,7 +68,7 @@ AsteroidsCreate = function () {
     //Asteroids_Red_Med.physicsBodytype = Phaser.Physics.ARCADE;
 
     Asteroids_Grey_Med.createMultiple(totalexistingAsteroids * 2, 'Asteroids_Grey_Med');
-    Asteroids_Grey_Med.scale.setTo(2);
+    Asteroids_Grey_Med.scale.setTo(1);
     Asteroids_Grey_Med.setAll('anchor.x', 0.5);
     Asteroids_Grey_Med.setAll('anchor.y', 0.5);
     Asteroids_Grey_Med.setAll('name', "medium_grey");
@@ -93,7 +93,7 @@ AsteroidsCreate = function () {
     //Asteroids_Red_Small.physicsBodytype = Phaser.Physics.ARCADE;
 
     Asteroids_Grey_Small.createMultiple(totalexistingAsteroids * 4, 'Asteroids_Grey_Small');
-    Asteroids_Grey_Small.scale.setTo(3);
+    Asteroids_Grey_Small.scale.setTo(1);
     Asteroids_Grey_Small.setAll('anchor.x', 0.5);
     Asteroids_Grey_Small.setAll('anchor.y', 0.5);
     Asteroids_Grey_Small.setAll('name', "small_grey");

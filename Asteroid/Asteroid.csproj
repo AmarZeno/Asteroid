@@ -97,12 +97,12 @@
   <ItemGroup>
     <Content Include="Assets\Audio\engine_loop.mp3" />
     <Content Include="Assets\Audio\engine_sound_initial.mp3" />
-    <Content Include="Assets\Images\Asteroids_Grey.png" />
     <Content Include="Assets\Images\Asteroids_Grey_Med.png" />
     <Content Include="Assets\Images\Asteroids_Grey_Small.png" />
     <Content Include="Assets\Images\asteroids_red.png" />
     <Content Include="Assets\Images\Asteroids_Red_Med.png" />
     <Content Include="Assets\Images\Asteroids_Red_Small.png" />
+    <Content Include="Assets\Images\Asteroids_Grey_Large.png" />
     <Content Include="Assets\Images\background.jpg" />
     <Content Include="Assets\Images\background.png" />
     <Content Include="Assets\Images\blue_laser.png" />

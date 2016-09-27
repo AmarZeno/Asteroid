@@ -8,13 +8,15 @@ var laser;
 var laserCollection;
 var laserTime = 0;
 
+let didHit = false;
+
 /*
 ENGINE CALLS
 */
 // Extended system preload method
 function playerManagerLoad(thisGame) {
     thisGame.load.image('ship', 'Assets/Images/ship.png');
-    thisGame.load.spritesheet('ship_sprite', 'Assets/Images/ship_sprite.png', 60, 30, 5);
+    thisGame.load.spritesheet('ship_sprite', 'Assets/Images/ship_sprite.png', 60, 30, 9);
     thisGame.load.image('laser', 'Assets/Images/blue_laser.png');
     //thisGame.OVERLAP_BIAS = 50;
 }
@@ -46,6 +48,8 @@ function addPlayer(thisGame) {
     var accelerate = this.ship.animations.add("accelerate");
     this.ship.animations.add('normal', [0], 30, true);
     this.ship.animations.add('accelerate', [1, 2, 3, 4], 30, true);
+    this.ship.animations.add('normalhit', [5, 6], 5, true);
+    this.ship.animations.add('acceleratehit', [7, 8], 5, true);
     this.ship.animations.play('normal');
     this.ship.name = "ship";
     
@@ -63,10 +67,18 @@ function capturePlayerActions() {
         game.physics.arcade.accelerationFromRotation(this.ship.rotation, 1000, this.ship.body.acceleration);
         this.ship.body.maxVelocity.x = 400;
         this.ship.body.maxVelocity.y = 400;
-        this.ship.animations.play('accelerate');
+        if (didHit == false) {
+            this.ship.animations.play('accelerate');
+        } else {
+            this.ship.animations.play('acceleratehit');
+        }
     } else {
         this.ship.body.acceleration.set(0);
-        this.ship.animations.play('normal');
+        if (didHit == false) {
+            this.ship.animations.play('normal');
+        } else {
+            this.ship.animations.play('normalhit');
+        }
     }
 
     // Rotation
@@ -149,5 +161,7 @@ function playerRespawn(sprite1, sprite2) {
         //this.ship.body.acceleration.set(0);
         //this.ship.body.velocity.setTo(0, 0);
         //this.ship.rotation = 0;
+        didHit = true;
+        setTimeout(function () { didHit = false; }, 1000);
     }
 }
