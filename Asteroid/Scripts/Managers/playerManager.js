@@ -16,7 +16,7 @@ ENGINE CALLS
 // Extended system preload method
 function playerManagerLoad(thisGame) {
     thisGame.load.image('ship', 'Assets/Images/ship.png');
-    thisGame.load.spritesheet('ship_sprite', 'Assets/Images/ship_sprite.png', 60, 30, 9);
+    thisGame.load.spritesheet('ship_sprite', 'Assets/Images/ship_sprite_new.png', 60, 30, 9);
     thisGame.load.image('laser', 'Assets/Images/blue_laser.png');
     //thisGame.OVERLAP_BIAS = 50;
 }
@@ -121,12 +121,11 @@ function fireLaser() {
             laser.scale.setTo(0.3);
             laser.lifespan = 2000;
             laser.rotation = this.ship.rotation;
-<<<<<<< HEAD
-            laser.body.force = 1000;
-            game.physics.arcade.velocityFromRotation(this.ship.rotation, 600, laser.body.velocity);
-=======
+
+          //  laser.body.force = 1000;
+
             game.physics.arcade.velocityFromRotation(this.ship.rotation, 1500, laser.body.velocity);
->>>>>>> master
+
             laserTime = game.time.now + 500;
         }
     }
