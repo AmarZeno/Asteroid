@@ -309,7 +309,7 @@ function AsteroidsCollide(sprite1, sprite2) {
 function AsteroidSplitLarge(sprite) {
     if (sprite.name.includes("grey")) {
         Asteroid = Asteroids_Grey_Med.getFirstExists(false);
-
+        Asteroid.revive();
         Asteroid.reset(sprite.x, sprite.y);
         Asteroid.birthTime = game.time.now;
         Asteroid.canCollide = false;
@@ -324,6 +324,7 @@ function AsteroidSplitLarge(sprite) {
         Asteroid.health = 5;
 
         Asteroid = Asteroids_Grey_Med.getFirstExists(false);
+        Asteroid.revive();
         Asteroid.reset(sprite.x, sprite.y);
         Asteroid.birthTime = game.time.now;
         Asteroid.canCollide = false;
@@ -374,6 +375,7 @@ function AsteroidSplitLarge(sprite) {
 function AsteroidSplitMedium(sprite) {
     if (sprite.name.includes("grey")) {
         Asteroid = Asteroids_Grey_Small.getFirstExists(false);
+        Asteroid.revive();
         Asteroid.reset(sprite.x, sprite.y);
         Asteroid.birthTime = game.time.now;
         Asteroid.canCollide = false;
@@ -388,6 +390,7 @@ function AsteroidSplitMedium(sprite) {
         Asteroid.health = 2;
 
         Asteroid = Asteroids_Grey_Small.getFirstExists(false);
+        Asteroid.revive();
         Asteroid.reset(sprite.x, sprite.y);
         Asteroid.birthTime = game.time.now;
         Asteroid.canCollide = false;
