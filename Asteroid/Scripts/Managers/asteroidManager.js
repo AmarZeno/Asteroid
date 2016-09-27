@@ -13,11 +13,11 @@ AsteroidsLoad = function () {
  //   game.load.image('Asteroids_Red', 'Assets/Images/Asteroids_Red.png');
 
     // Temp file names for medium sized asteroids
-    game.load.image('Asteroids_Grey_Med', 'Assets/Images/Asteroids_Grey_Med.png');
+    game.load.image('Asteroids_Grey_Med', 'Assets/Images/asteroids_grey_medium.png');
  //   game.load.image('Asteroids_Red_Med', 'Assets/Images/Asteroids_Red_Med.png');
 
     // Temp file names for small sized asteroids
-    game.load.image('Asteroids_Grey_Small', 'Assets/Images/Asteroids_Grey_Small.png');
+    game.load.image('Asteroids_Grey_Small', 'Assets/Images/asteroids_grey_small.png');
   //  game.load.image('Asteroids_Red_Small', 'Assets/Images/Asteroids_Red_Small.png');
 
     // Load a particle effect for collisions?
@@ -30,6 +30,7 @@ AsteroidsLoad = function () {
 }*/
 
 AsteroidsCreate = function () {
+
     // Large asteroids
     Asteroids_Grey = game.add.group();
     Asteroids_Grey.enableBody = false;
@@ -120,16 +121,27 @@ AsteroidsCreate = function () {
         //if (game.time.now > AsteroidTime) {
        // var AsteroidsType = Math.random() * 2;
 
+        // Particle effects
+        
+
+       
+
       //  if (AsteroidsType >= 0 && AsteroidsType < 1)
             Asteroid = Asteroids_Grey.getFirstExists(false);
       //  else
-          //  Asteroid = Asteroids_Red.getFirstExists(false);
+        //  Asteroid = Asteroids_Red.getFirstExists(false);
 
-        if (Asteroid != null) {
+            
+
+            if (Asteroid != null) {
+
+
+
             RandomCreatePosition = Math.random() * 4;
             if (RandomCreatePosition >= 0 && RandomCreatePosition < 1) {
                 Asteroid.reset(-100, Math.random() * game.height);
                 Asteroid.rotation = Math.random() * Math.PI / 2 - Math.PI / 4;
+               // emitter.reset();
             }
             else if (RandomCreatePosition >= 1 && RandomCreatePosition < 2) {
                 Asteroid.reset(game.width + 100, Math.random() * game.height);
@@ -152,7 +164,17 @@ AsteroidsCreate = function () {
            // Asteroid.scale.setTo(0.5);
             Asteroid.birthTime = game.time.now;
             //    AsteroidTime = game.time.now + 200;
-            //}
+                //}
+
+
+
+           
+               
+
+
+
+
+
         }
     }
 }
@@ -211,7 +233,6 @@ AsteroidsUpdate = function () {
     //Asteroids_Red.forEachExists(checkBirthTime, this);
     //Asteroids_Red_Med.forEachExists(checkBirthTime, this);
     //Asteroids_Red_Small.forEachExists(checkBirthTime, this);
-
 }
 
 function AsteroidsCollide(sprite1, sprite2) {
@@ -417,3 +438,29 @@ function checkBirthTime(currentAsteroid) {
         currentAsteroid.canCollide = true;
     }
 }
+
+function updateParticles() {
+    for (var i = 0; i < totalexistingAsteroids; i++) {
+
+        var tempAsteroid = Asteroids_Grey.getFirstExists(false);
+        var tempEmitter = emitters.getFirstExists(false);
+
+        if (tempAsteroid != null && tempEmitter != null) {
+            var px = tempAsteroid.body.velocity.x;
+            var py = tempAsteroid.body.velocity.y;
+
+            px *= -1;
+            py *= -1;
+
+            tempEmitter.emitX = tempAsteroid.x;
+            tempEmitter.emitY = tempAsteroid.y;
+
+            tempEmitter.minParticleSpeed.set(px, py);
+            tempEmitter.maxParticleSpeed.set(px, py);
+        }
+
+        
+    }
+
+}
+
