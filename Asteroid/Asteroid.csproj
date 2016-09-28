@@ -104,8 +104,9 @@
     <Content Include="Assets\Images\Asteroids_Red_Med.png" />
     <Content Include="Assets\Images\Asteroids_Red_Small.png" />
     <Content Include="Assets\Images\Asteroids_Grey_Large.png" />
-    <Content Include="Assets\Images\background.jpg" />
-    <Content Include="Assets\Images\background.png" />
+    <Content Include="Assets\Images\background_star_set_2.png" />
+    <Content Include="Assets\Images\background_galaxy.png" />
+    <Content Include="Assets\Images\background_star_set_1.png" />
     <Content Include="Assets\Images\blue_laser.png" />
     <Content Include="Assets\Images\fire1.png" />
     <Content Include="Assets\Images\fire2.png" />
@@ -123,8 +124,8 @@
     <Content Include="Scripts\game.js" />
     <Content Include="Scripts\Managers\asteroidManager.js" />
     <Content Include="Scripts\Managers\audioManager.js" />
+    <Content Include="Scripts\Managers\backgroundManager.js" />
     <Content Include="Scripts\Managers\configurationManager.js" />
-    <Content Include="Scripts\Managers\pickupManager.js" />
     <Content Include="Scripts\Managers\playerManager.js" />
     <Content Include="Scripts\Managers\uIManager.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />

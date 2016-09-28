@@ -24,6 +24,7 @@ function playerManagerLoad(thisGame) {
     thisGame.load.image('fire2', 'Assets/Images/fire2.png');
     thisGame.load.image('fire3', 'Assets/Images/fire3.png');
     thisGame.load.image('smoke', 'Assets/Images/smoke-puff.png');
+    
     //thisGame.OVERLAP_BIAS = 50;
 }
 

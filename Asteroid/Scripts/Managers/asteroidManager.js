@@ -440,10 +440,7 @@ function updateParticles() {
             tempEmitter.minParticleSpeed.set(px, py);
             tempEmitter.maxParticleSpeed.set(px, py);
         }
-
-        
     }
-
 }
 
 
