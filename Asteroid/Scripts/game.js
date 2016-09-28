@@ -19,7 +19,10 @@ var GameState = {
 
     preload: function () {
         // Load asset
-       // LoadBackground(this);
+        // LoadBackground(this);
+
+      //  game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+
         backgroundManagerLoad(this);
         playerManagerLoad(this);
         AsteroidsLoad();

@@ -98,6 +98,11 @@
     <Content Include="Assets\Audio\bgm.mp3" />
     <Content Include="Assets\Audio\engine_loop.mp3" />
     <Content Include="Assets\Audio\engine_sound_initial.mp3" />
+    <Content Include="Assets\Fonts\ArcadeClassic\arcadeclassic-demo.html" />
+    <Content Include="Assets\Fonts\ArcadeClassic\generator_config.txt" />
+    <Content Include="Assets\Fonts\ArcadeClassic\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="Assets\Fonts\ArcadeClassic\specimen_files\specimen_stylesheet.css" />
+    <Content Include="Assets\Fonts\ArcadeClassic\stylesheet.css" />
     <Content Include="Assets\Images\asteroids_grey_medium.png" />
     <Content Include="Assets\Images\asteroids_grey_small.png" />
     <Content Include="Assets\Images\asteroids_red.png" />
@@ -132,6 +137,8 @@
     <Content Include="Assets\Audio\engine_loop.ogg" />
     <Content Include="Assets\Audio\engine_sound_inital.ogg" />
     <Content Include="Assets\Audio\bgm.ogg" />
+    <Content Include="Assets\Fonts\ArcadeClassic\arcadeclassic-webfont.woff" />
+    <Content Include="Assets\Fonts\ArcadeClassic\arcadeclassic-webfont.woff2" />
     <None Include="Properties\PublishProfiles\smedashboard.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -156,7 +163,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Fonts\" />
     <Folder Include="Styles\" />
   </ItemGroup>
   <PropertyGroup>
