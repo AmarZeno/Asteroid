@@ -13,18 +13,18 @@ var asteroidSpawnTime = 10000;
 var lastSpawnTime = 0;
 var asteroidDecay = 20000;
 
-
+ 
 
 AsteroidsLoad = function () {
-    game.load.image('Asteroids_Grey', 'Assets/Images/Asteroids_Grey.png');
+    game.load.image('Asteroids_Grey', 'Assets/Images/Asteroids_Grey_Large.png');
 
     // Temp file names for medium sized asteroids
 
-    game.load.image('Asteroids_Grey_Med', 'Assets/Images/asteroids_grey_medium.png');
+    //game.load.image('Asteroids_Grey_Med', 'Assets/Images/asteroids_grey_medium.png');
  //   game.load.image('Asteroids_Red_Med', 'Assets/Images/Asteroids_Red_Med.png');
 
     // Temp file names for small sized asteroids
-    game.load.image('Asteroids_Grey_Small', 'Assets/Images/asteroids_grey_small.png');
+    //game.load.image('Asteroids_Grey_Small', 'Assets/Images/asteroids_grey_small.png');
   //  game.load.image('Asteroids_Red_Small', 'Assets/Images/Asteroids_Red_Small.png');
 
     game.load.image('Asteroids_Grey_Med', 'Assets/Images/Asteroids_Grey_Med.png');
