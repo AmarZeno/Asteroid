@@ -10,6 +10,8 @@ var laserTime = 0;
 
 let didHit = false;
 
+var emitter;
+
 /*
 ENGINE CALLS
 */
@@ -18,6 +20,11 @@ function playerManagerLoad(thisGame) {
     thisGame.load.image('ship', 'Assets/Images/ship.png');
     thisGame.load.spritesheet('ship_sprite', 'Assets/Images/ship_sprite_new.png', 60, 30, 9);
     thisGame.load.image('laser', 'Assets/Images/blue_laser.png');
+    thisGame.load.image('fire1', 'Assets/Images/fire1.png');
+    thisGame.load.image('fire2', 'Assets/Images/fire2.png');
+    thisGame.load.image('fire3', 'Assets/Images/fire3.png');
+    thisGame.load.image('smoke', 'Assets/Images/smoke-puff.png');
+    
     //thisGame.OVERLAP_BIAS = 50;
 }
 
@@ -27,13 +34,16 @@ function playerManagerCreate(thisGame) {
     addPlayerControls(thisGame);
     addBackgroundSoundEffects(thisGame);
     createLaserCollection();
+    addBlastEmitters();
 }
 
 // Extended system update method
 function playerManagerUpdate(thisGame) {
     capturePlayerActions();
     checkPlayerCollision();
-    checkLaserCollision();
+    checkLaserCollision(); 
+    startBlastEmitter();
+    alertLowHealth();
 }
 
 
@@ -61,6 +71,17 @@ function addPlayer(thisGame) {
 
 function addPlayerControls(thisGame) {
     arrowKeys = thisGame.game.input.keyboard.createCursorKeys();
+}
+
+function addBlastEmitters() {
+    // Emitters
+    emitter = game.add.emitter(game.world.centerX, game.world.centerY, 400);
+    emitter.makeParticles(['fire1', 'fire2', 'fire3', 'smoke']);
+    emitter.gravity = 200;
+    emitter.setAlpha(1, 0, 3000);
+    emitter.setScale(0.8, 0, 0.8, 0, 3000);
+    
+   // startBlastEmitter();
 }
 
 function capturePlayerActions() {
@@ -161,13 +182,22 @@ function playerRespawn(sprite1, sprite2) {
     if ((sprite1.name == "ship" && sprite2.canCollide) || (sprite2.name == "ship" && sprite1.canCollide)) {
 
         updateLivesUI();
-        //this.ship.body.angularVelocity = 0;
-        //this.ship.x = this.game.world.centerX;
-        //this.ship.y = this.game.world.centerY;
-        //this.ship.body.acceleration.set(0);
-        //this.ship.body.velocity.setTo(0, 0);
-        //this.ship.rotation = 0;
         didHit = true;
         setTimeout(function () { didHit = false; }, 1000);
     }
+}
+
+function startBlastEmitter() {
+    if (gameOver == true) { 
+        emitter.emitX = this.ship.x;
+        emitter.emitY = this.ship.y;
+        emitter.start(true, 15000, null, 30);
+        this.ship.kill();
+    }
+}
+
+function alertLowHealth() {
+    if (currentLives == 1) {
+        didHit = true;
+    } 
 }

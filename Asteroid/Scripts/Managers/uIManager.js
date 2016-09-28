@@ -1,21 +1,20 @@
 ﻿/// <reference path="../phaser.js" />
+/// <reference path="playerManager.js" />
 
 var score;
 var displayText;
 var deathText;
-var gameOver;
+let gameOver;
+
 var currentTime = 0;
 
-var life1;
-var life2;
-var life3;
-var life4;
-var life5;
 
-var currentLives = 100;
+var currentLives = 5;
+
 
 preloadUI = function (thisGame) {
-    thisGame.load.image('life', 'Assets/Images/ship.png');
+    thisGame.load.image('power_bar_inner', 'Assets/Images/player_power_bar_fill.png');
+    thisGame.load.image('power_bar_outer', 'Assets/Images/player_power_bar.png');
 }
 
 initUI = function (thisGame) {
@@ -24,17 +23,7 @@ initUI = function (thisGame) {
     displayText = thisGame.add.text(50, 50, currentTime, { font: "50px Verdana", fill: "#ffffff", align: "center" });
     deathText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY, "", { font: "70px Verdana", fill: "#ffffff", align: "left" });
     deathText.anchor.set(0.5);
-
-    life1 = thisGame.add.sprite(30, 150, 'life');
-    life1.rotation = Math.PI * 3 / 2;
-    life2 = thisGame.add.sprite(70, 150, 'life');
-    life2.rotation = Math.PI * 3 / 2;
-    life3 = thisGame.add.sprite(110, 150, 'life');
-    life3.rotation = Math.PI * 3 / 2;
-    life4 = thisGame.add.sprite(150, 150, 'life')
-    life4.rotation = Math.PI * 3 / 2;
-    life5 = thisGame.add.sprite(190, 150, 'life')
-    life5.rotation = Math.PI * 3 / 2;
+    createHealthBar(thisGame);
 }
 
 updateUI = function () {
@@ -42,25 +31,26 @@ updateUI = function () {
     displayText.setText(currentTime/1000);
 }
 
+createHealthBar = function (thisGame) {
+    this.healthBarStatus = thisGame.add.sprite(0, 50, 'power_bar_inner');
+    updateHealthBar(5);
+    var powerBarOuterWidth = game.cache.getImage('power_bar_outer').width;
+    this.healthBar = thisGame.add.sprite(game.width - powerBarOuterWidth - 20, 50, 'power_bar_outer');
+}
+
 updateLivesUI = function () {
 
     currentLives--;
 
-    if (currentLives == 4) {
-        life5.visible = false;
-    }
-    else if (currentLives == 3) {
-        life4.visible = false;
-    }
-    else if (currentLives == 2) {
-        life3.visible = false;
-    }
-    else if (currentLives == 1) {
-        life2.visible = false;
-    }
-    else if (currentLives == 0) {
-        life1.visible = false;
+    updateHealthBar(currentLives);
+
+    if (currentLives == 0) {
         deathText.setText("Game Over");
         gameOver = true;
     }
+}
+
+updateHealthBar = function (healthValue) {
+    this.healthBarStatus.scale.setTo(healthValue, 1);
+    this.healthBarStatus.x = game.width - this.healthBarStatus.width - 70;
 }

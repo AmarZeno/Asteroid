@@ -20,11 +20,11 @@ AsteroidsLoad = function () {
  //   game.load.image('Asteroids_Red', 'Assets/Images/Asteroids_Red.png');
 
     // Temp file names for medium sized asteroids
-    game.load.image('Asteroids_Grey_Med', 'Assets/Images/Asteroids_Grey_Med.png');
+    game.load.image('Asteroids_Grey_Med', 'Assets/Images/asteroids_grey_medium.png');
  //   game.load.image('Asteroids_Red_Med', 'Assets/Images/Asteroids_Red_Med.png');
 
     // Temp file names for small sized asteroids
-    game.load.image('Asteroids_Grey_Small', 'Assets/Images/Asteroids_Grey_Small.png');
+    game.load.image('Asteroids_Grey_Small', 'Assets/Images/asteroids_grey_small.png');
   //  game.load.image('Asteroids_Red_Small', 'Assets/Images/Asteroids_Red_Small.png');
 
     // Load a particle effect for collisions?
@@ -37,6 +37,7 @@ AsteroidsLoad = function () {
 }*/
 
 AsteroidsCreate = function () {
+
     // Large asteroids
     Asteroids_Grey = game.add.group();
     Asteroids_Grey.enableBody = false;
@@ -128,6 +129,7 @@ AsteroidsCreate = function () {
        // var AsteroidsType = Math.random() * 2;
 
         LargeAsteroidSpawn();
+       
     }
 }
 
@@ -409,17 +411,38 @@ function AsteroidSplitMedium(sprite) {
 }
 
 function checkBirthTime(currentAsteroid) {
-
     if (game.time.now >= currentAsteroid.birthTime + 1000) { // the int value being added represents the amount of time until the asteroid can collide
         currentAsteroid.canCollide = true;
     }
-
     else if (currentAsteroid.name.includes("small") && game.time.now >= currentAsteroid.birthTime + asteroidDecay) {
         currentAsteroid.pendingDestroy = true;
         currentAsteroid.exists = false;
         Asteroids_Grey_Small.remove(currentAsteroid);
     }
 }
+
+function updateParticles() {
+    for (var i = 0; i < totalexistingAsteroids; i++) {
+
+        var tempAsteroid = Asteroids_Grey.getFirstExists(false);
+        var tempEmitter = emitters.getFirstExists(false);
+
+        if (tempAsteroid != null && tempEmitter != null) {
+            var px = tempAsteroid.body.velocity.x;
+            var py = tempAsteroid.body.velocity.y;
+
+            px *= -1;
+            py *= -1;
+
+            tempEmitter.emitX = tempAsteroid.x;
+            tempEmitter.emitY = tempAsteroid.y;
+
+            tempEmitter.minParticleSpeed.set(px, py);
+            tempEmitter.maxParticleSpeed.set(px, py);
+        }
+    }
+}
+
 
 function ShootAsteroids(sprite1, sprite2) {
     if (this.ship.Ispushing == true) {
@@ -440,3 +463,4 @@ function ShootAsteroids(sprite1, sprite2) {
         //}
     }
 }
+
