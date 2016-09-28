@@ -2,6 +2,7 @@
 /// <reference path="Managers/configurationManager.js" />
 /// <reference path="Managers/playerManager.js" />
 /// <reference path="Managers/audioManager.js" />
+/// <reference path="Managers/backgroundManager.js" />
 
 var game = new Phaser.Game(1920, 1080, Phaser.AUTO);
 
@@ -18,11 +19,12 @@ var GameState = {
 
     preload: function () {
         // Load asset
-        LoadBackground(this);
+       // LoadBackground(this);
+        backgroundManagerLoad(this);
         playerManagerLoad(this);
         AsteroidsLoad();
         preloadUI(this);
-
+        
        // PickupsLoad();
 
         audioManagerLoad(this);
@@ -31,8 +33,9 @@ var GameState = {
 
     create: function () {
         // Access loaded asset
-       // this.background = this.add.sprite(0, 0, 'background');
-        drawBackground(this);
+        // this.background = this.add.sprite(0, 0, 'background');
+        backgroundManagerCreate(this);
+       // drawBackground(this);
         playerManagerCreate(this);
         AsteroidsCreate();
       //  PickupsCreate();
@@ -41,6 +44,7 @@ var GameState = {
     },
 
     update: function () {
+        backgroundManagerUpdate(this);
         // Game loop
         if (!gameOver) {
             playerManagerUpdate(this);
@@ -59,14 +63,7 @@ var GameState = {
 game.state.add('GameState', GameState);
 game.state.start('GameState');
 
-/*
-CUSTOM ACCESSORS
-*/
 
-function LoadBackground(thisGame) {
-    thisGame.load.image('background', 'Assets/Images/background.png');
-}
 
-function drawBackground(thisGame) {
-    thisGame.background = thisGame.add.sprite(0, 0, 'background');
-}
+
+
