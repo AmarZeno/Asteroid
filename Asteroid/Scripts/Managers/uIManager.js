@@ -1,10 +1,10 @@
 ﻿/// <reference path="../phaser.js" />
 /// <reference path="playerManager.js" />
 
-var score;
 var displayText;
 var deathText;
 let gameOver;
+
 
 var currentTime = 0;
 
@@ -36,6 +36,7 @@ createHealthBar = function (thisGame) {
     updateHealthBar(5);
     var powerBarOuterWidth = game.cache.getImage('power_bar_outer').width;
     this.healthBar = thisGame.add.sprite(game.width - powerBarOuterWidth - 20, 50, 'power_bar_outer');
+
 }
 
 updateLivesUI = function () {

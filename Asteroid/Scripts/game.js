@@ -44,12 +44,10 @@ var GameState = {
         // Game loop
         if (!gameOver) {
             playerManagerUpdate(this);
-
             updateUI();
 
            // NormalPickupsUpdate();
           //  SwitchModePickupsUpdate();
-
         }
         AsteroidsUpdate();
         audioManagerUpdate(this);
