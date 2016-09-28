@@ -20,11 +20,8 @@ preloadUI = function (thisGame) {
 initUI = function (thisGame) {
     score = 0;
     gameOver = false;
-    displayText = thisGame.add.text(50, 50, currentTime, { font: "50px arcadeclassicregular", fill: "#ffffff", align: "center" });
-    displayText.font = 'arcadeclassicregular';
-    displayText.fontSize = 60;
-
-    deathText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY, "", { font: "70px arcadeclassicregular", fill: "#ffffff", align: "left" });
+    displayText = thisGame.add.text(50, 50, currentTime, { font: "50px Verdana", fill: "#ffffff", align: "center" });
+    deathText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY, "", { font: "70px Verdana", fill: "#ffffff", align: "left" });
     deathText.anchor.set(0.5);
     createHealthBar(thisGame);
 }
