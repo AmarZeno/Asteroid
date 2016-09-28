@@ -106,6 +106,8 @@
     <Content Include="Assets\Images\background.jpg" />
     <Content Include="Assets\Images\background.png" />
     <Content Include="Assets\Images\blue_laser.png" />
+    <Content Include="Assets\Images\glow circle.png" />
+    <Content Include="Assets\Images\glow circle1.png" />
     <Content Include="Assets\Images\ship.png" />
     <Content Include="Assets\Images\ship_sprite_new.png" />
     <Content Include="packages.config" />

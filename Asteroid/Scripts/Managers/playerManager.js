@@ -138,6 +138,7 @@ function checkPlayerCollision() {
     game.physics.arcade.collide(this.ship, Asteroids_Grey_Med, playerRespawn, null, this);
   //  game.physics.arcade.collide(this.ship, Asteroids_Red_Small, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, Asteroids_Grey_Small, playerRespawn, null, this);
+    game.physics.arcade.collide(this.ship, NormalPickups, EatingNormalPickups, null, this);
 }
 
 function checkLaserCollision() {
