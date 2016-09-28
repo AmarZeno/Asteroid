@@ -12,7 +12,7 @@ var life3;
 var life4;
 var life5;
 
-var currentLives = 100;
+var currentLives = 1000;
 
 preloadUI = function (thisGame) {
     thisGame.load.image('life', 'Assets/Images/ship.png');
