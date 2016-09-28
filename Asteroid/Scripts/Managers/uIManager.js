@@ -1,15 +1,16 @@
 ﻿/// <reference path="../phaser.js" />
 /// <reference path="playerManager.js" />
 
-var score;
 var displayText;
 var deathText;
 let gameOver;
+
 
 var currentTime = 0;
 
 
 var currentLives = 5;
+
 
 preloadUI = function (thisGame) {
     thisGame.load.image('power_bar_inner', 'Assets/Images/player_power_bar_fill.png');
@@ -19,11 +20,8 @@ preloadUI = function (thisGame) {
 initUI = function (thisGame) {
     score = 0;
     gameOver = false;
-    displayText = thisGame.add.text(50, 50, currentTime, { font: "50px arcadeclassicregular", fill: "#ffffff", align: "center" });
-    displayText.font = 'arcadeclassicregular';
-    displayText.fontSize = 60;
-
-    deathText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY, "", { font: "70px arcadeclassicregular", fill: "#ffffff", align: "left" });
+    displayText = thisGame.add.text(50, 50, currentTime, { font: "50px Verdana", fill: "#ffffff", align: "center" });
+    deathText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY, "", { font: "70px Verdana", fill: "#ffffff", align: "left" });
     deathText.anchor.set(0.5);
     createHealthBar(thisGame);
 }
@@ -38,6 +36,7 @@ createHealthBar = function (thisGame) {
     updateHealthBar(5);
     var powerBarOuterWidth = game.cache.getImage('power_bar_outer').width;
     this.healthBar = thisGame.add.sprite(game.width - powerBarOuterWidth - 20, 50, 'power_bar_outer');
+
 }
 
 updateLivesUI = function () {
