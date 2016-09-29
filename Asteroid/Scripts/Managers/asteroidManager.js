@@ -109,9 +109,11 @@ AsteroidsUpdate = function () {
     }
 
     // Screen wrapping
+
     Asteroids_Grey.forEachExists(worldWrap, this, 0);
     Asteroids_Grey_Med.forEachExists(worldWrap, this, 0);
     Asteroids_Grey_Small.forEachExists(worldWrap, this, 0);
+
 
     // update if asteroids can collide
     Asteroids_Grey.forEachExists(checkBirthTime, this);
