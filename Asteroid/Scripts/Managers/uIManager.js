@@ -33,7 +33,7 @@ initUI = function (thisGame) {
 
 updateUI = function () {
     currentTime = game.time.totalElapsedSeconds();
-    displayText.setText(currentTime.toString().substring(0, 4));
+    displayText.setText(currentTime.toString().substring(0, 5));
 }
 
 createHealthBar = function (thisGame) {
