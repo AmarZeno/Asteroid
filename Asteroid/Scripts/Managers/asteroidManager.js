@@ -206,7 +206,7 @@ function AsteroidsCollide(sprite1, sprite2) {
             sprite1.health--;
         }
 
-        if (sprite1.health <= 0 || sprite1.name == "laser" || sprite2.name == "laser" || sprite2.name == "ship") {
+        if (sprite1.health <= 0 || sprite1.name == "laser" || sprite2.name == "laser" || sprite2.name == "ship" || sprite2.name == "sheilds") {
             sprite1.health = 0;
             sprite1.kill();
         }
@@ -219,7 +219,7 @@ function AsteroidsCollide(sprite1, sprite2) {
             sprite1.health--;
         }
 
-        if (sprite1.health <= 0 || sprite2.name == "laser" || sprite2.name == "ship") {
+        if (sprite1.health <= 0 || sprite2.name == "laser" || sprite2.name == "ship" || sprite2.name == "sheilds") {
             sprite1.health = 0;
             AsteroidSplitLarge(sprite1);
         }
@@ -232,7 +232,7 @@ function AsteroidsCollide(sprite1, sprite2) {
             sprite1.health--;
         }
 
-        if (sprite1.health <= 0 || sprite2.name == "laser" || sprite2.name == "ship") {
+        if (sprite1.health <= 0 || sprite2.name == "laser" || sprite2.name == "ship" || sprite2.name == "sheilds") {
             sprite1.health = 0;
             AsteroidSplitMedium(sprite1);
         }
@@ -246,7 +246,7 @@ function AsteroidsCollide(sprite1, sprite2) {
             sprite2.health--;
         }
 
-        if (sprite2.health <= 0 || sprite2.name == "laser" || sprite1.name == "laser" || sprite1.name == "ship") {
+        if (sprite2.health <= 0 || sprite2.name == "laser" || sprite1.name == "laser" || sprite1.name == "ship" || sprite1.name == "sheilds") {
             sprite2.health = 0;
             sprite2.kill();
         }
@@ -259,7 +259,7 @@ function AsteroidsCollide(sprite1, sprite2) {
             sprite2.health--;
         }
 
-        if (sprite2.health <= 0 || sprite1.name == "laser" || sprite1.name == "ship") {
+        if (sprite2.health <= 0 || sprite1.name == "laser" || sprite1.name == "ship" || sprite1.name == "sheilds") {
             sprite2.health = 0;
             AsteroidSplitLarge(sprite2);
         }
@@ -272,7 +272,7 @@ function AsteroidsCollide(sprite1, sprite2) {
             sprite2.health--;
         }
 
-        if (sprite2.health <= 0 || sprite1.name == "laser" || sprite1.name == "ship") {
+        if (sprite2.health <= 0 || sprite1.name == "laser" || sprite1.name == "ship" || sprite1.name == "sheilds") {
             sprite2.health = 0;
             AsteroidSplitMedium(sprite2);
         }

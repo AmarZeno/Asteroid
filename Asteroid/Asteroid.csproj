@@ -116,8 +116,10 @@
     <Content Include="Assets\Images\fire1.png" />
     <Content Include="Assets\Images\fire2.png" />
     <Content Include="Assets\Images\fire3.png" />
+    <Content Include="Assets\Images\glow circle1.png" />
     <Content Include="Assets\Images\player_power_bar.png" />
     <Content Include="Assets\Images\player_power_bar_fill.png" />
+    <Content Include="Assets\Images\sheild.png" />
     <Content Include="Assets\Images\ship.png" />
     <Content Include="Assets\Images\ship_sprite_new.png" />
     <Content Include="Assets\Images\smoke-puff.png" />
@@ -169,7 +171,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Core.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
