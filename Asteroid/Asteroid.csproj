@@ -117,7 +117,10 @@
     <Content Include="Assets\Images\background_galaxy.png" />
     <Content Include="Assets\Images\background_star_set_1.png" />
     <Content Include="Assets\Images\background_star_set_2.png" />
+    <Content Include="Assets\Images\begin_space.png" />
     <Content Include="Assets\Images\blue_laser.png" />
+    <Content Include="Assets\Images\control_manual.png" />
+    <Content Include="Assets\Images\exit_game.png" />
     <Content Include="Assets\Images\fire1.png" />
     <Content Include="Assets\Images\fire2.png" />
     <Content Include="Assets\Images\fire3.png" />
@@ -132,6 +135,7 @@
     <Content Include="Assets\Images\ship_sprite_new2.png" />
     <Content Include="Assets\Images\smoke-puff.png" />
     <Content Include="Assets\Images\smoke.png" />
+    <Content Include="Assets\Images\start_game.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
