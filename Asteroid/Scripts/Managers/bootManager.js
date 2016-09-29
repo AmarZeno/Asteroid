@@ -28,19 +28,25 @@ function bootManagerCreate(thisGame) {
     thisGame.gameTitle.anchor.setTo(0.5);
     thisGame.gameTitle.reset(thisGame.game.world.centerX, 200);
 
-    startGameText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY + 100, "", { font: "70px arcadeclassicregular", fill: "#ffffff", align: "left" });
+    startGameText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY + 150, "", { font: "70px arcadeclassicregular", fill: "#ffffff", align: "left" });
     startGameText.setText("Start Game");
     startGameText.anchor.set(0.5);
 
-    exitGameText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY + 220, "", { font: "70px arcadeclassicregular", fill: "#ffffff", align: "left" });
+    exitGameText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY + 270, "", { font: "70px arcadeclassicregular", fill: "#ffffff", align: "left" });
     exitGameText.setText("Exit Game");
     exitGameText.anchor.set(0.5);
 
     thisGame.ship2 = thisGame.add.sprite(0, 0, 'ship');
-    thisGame.ship2.reset(thisGame.world.centerX - startGameText.width / 2 - thisGame.ship2.width - 10, thisGame.world.centerY + 100);
+    thisGame.ship2.reset(thisGame.world.centerX - startGameText.width / 2 - thisGame.ship2.width - 10, thisGame.world.centerY + 150);
     thisGame.ship2.scale.setTo(1.5);
     thisGame.ship2.anchor.setTo(0.5);
     thisGame.ship2.angle -= 90;
+
+    thisGame.shipArtwork = thisGame.add.sprite(0, 0, 'ship');
+    thisGame.shipArtwork.reset(thisGame.world.centerX - startGameText.width / 2 - thisGame.ship2.width - 10, thisGame.world.centerY);
+    thisGame.shipArtwork.scale.setTo(2.5);
+    thisGame.shipArtwork.anchor.setTo(0.5);
+    thisGame.shipArtwork.angle += 145;
 
     arrowKeys = thisGame.game.input.keyboard.createCursorKeys();
 
@@ -60,11 +66,11 @@ function handleInitialKeyboardEvents(thisGame) {
                 playSelectSound();
                 if (isSelectionOnTop == true) {
                     thisGame.ship2.x = thisGame.world.centerX - startGameText.width / 2 - thisGame.ship2.width - 10;
-                    thisGame.ship2.y = thisGame.world.centerY + 220;
+                    thisGame.ship2.y = thisGame.world.centerY + 270;
                     isSelectionOnTop = false;
                 } else {
                     thisGame.ship2.x = thisGame.world.centerX - startGameText.width / 2 - thisGame.ship2.width - 10;
-                    thisGame.ship2.y = thisGame.world.centerY + 100;
+                    thisGame.ship2.y = thisGame.world.centerY + 150;
                     isSelectionOnTop = true;
                 }
                 break;
@@ -96,12 +102,12 @@ function toggleSelectPosition(thisGame) {
      //   alert('pressed down');
         if (isSelectionOnTop == true) {
             thisGame.ship.x = thisGame.world.centerX - startGameText.width / 2 - thisGame.ship.width - 10;
-            thisGame.ship.y = thisGame.world.centerY + 220;
+            thisGame.ship.y = thisGame.world.centerY + 270;
          //   game.add.tween(thisGame.ship).to({ x: thisGame.world.centerX - startGameText.width / 2 - thisGame.ship.width - 10, y: thisGame.world.centerY + 220 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false);
             isSelectionOnTop = false;
         } else {
             thisGame.ship.x = thisGame.world.centerX - startGameText.width / 2 - thisGame.ship.width - 10;
-            thisGame.ship.y = thisGame.world.centerY + 100;
+            thisGame.ship.y = thisGame.world.centerY + 150;
 
         //    game.add.tween(thisGame.ship).to({ x: thisGame.world.centerX - startGameText.width / 2 - thisGame.ship.width - 10, y: thisGame.world.centerY + 100 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false);
             isSelectionOnTop = true;
@@ -110,12 +116,12 @@ function toggleSelectPosition(thisGame) {
         playSelectSound();
         if (isSelectionOnTop == true) {
             thisGame.ship.x = thisGame.world.centerX - startGameText.width / 2 - thisGame.ship.width - 10;
-            thisGame.ship.y = thisGame.world.centerY + 220;
+            thisGame.ship.y = thisGame.world.centerY + 270;
             //   game.add.tween(thisGame.ship).to({ x: thisGame.world.centerX - startGameText.width / 2 - thisGame.ship.width - 10, y: thisGame.world.centerY + 220 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false);
             isSelectionOnTop = false;
         } else {
             thisGame.ship.x = thisGame.world.centerX - startGameText.width / 2 - thisGame.ship.width - 10;
-            thisGame.ship.y = thisGame.world.centerY + 100;
+            thisGame.ship.y = thisGame.world.centerY + 150;
 
             //    game.add.tween(thisGame.ship).to({ x: thisGame.world.centerX - startGameText.width / 2 - thisGame.ship.width - 10, y: thisGame.world.centerY + 100 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false);
             isSelectionOnTop = true;

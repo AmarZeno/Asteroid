@@ -1,4 +1,6 @@
-﻿/*
+﻿/// <reference path="uIManager.js" />
+
+/*
  VARIABLES
 */
 let canInitialEngineLaunchPlay = true;
@@ -60,6 +62,12 @@ function handleKeyboardEvents(thisGame) {
             case 38:
                 // Up arrow
                 playInitialEngineSound();
+                break;
+            case 32:
+                // Space bar
+                if (gameOver == true) {
+                    replayClick();
+                }
                 break;
             default:
                 break;
