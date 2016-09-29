@@ -13,6 +13,7 @@ function audioManagerLoad(thisGame) {
     thisGame.load.audio('player_death', ['Assets/Audio/player_death.mp3', 'Assets/Audio/player_death.ogg']);
     thisGame.load.audio('player_hit', ['Assets/Audio/player_hit.mp3', 'Assets/Audio/player_hit.ogg']);
     thisGame.load.audio('asteroid_to_asteroid_hit', ['Assets/Audio/asteroid_to_asteroid_collision.mp3', 'Assets/Audio/asteroid_to_asteroid_collision.ogg']);
+    thisGame.load.audio('pickup_sound', ['Assets/Audio/player_pickup2.mp3', 'Assets/Audio/player_pickup2.ogg']);
 }
 
 function audioManagerCreate(thisGame) {
@@ -34,6 +35,7 @@ function addBackgroundSoundEffects(thisGame) {
     this.playerDeathSound = thisGame.add.audio('player_death');
     this.playerCollideSound = thisGame.add.audio('player_hit');
     this.asteroidHitSound = thisGame.add.audio('asteroid_to_asteroid_hit');
+    this.playerPickupHealth = thisGame.add.audio('pickup_sound');
     this.asteroidHitSound.allowMultiple = true;
     playBGM();
     //this.initialEngineSound.addEventListener('ended', function () {
@@ -98,6 +100,10 @@ function playShipCollideSound() {
 
 function playAsteroidHitSound() {
     this.asteroidHitSound.play();
+}
+
+function playPickupHealth() {
+    this.playerPickupHealth.play();
 }
 
 function stopEngineSound() {

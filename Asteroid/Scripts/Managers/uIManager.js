@@ -55,3 +55,12 @@ updateHealthBar = function (healthValue) {
     this.healthBarStatus.scale.setTo(healthValue, 1);
     this.healthBarStatus.x = game.width - this.healthBarStatus.width - 70;
 }
+
+increaseCurrentHealth = function () {
+    if (currentLives == 4) {
+        currentLives = currentLives + 1;
+    } else if (currentLives < 5) {
+        currentLives = currentLives + 2;
+    }
+    updateHealthBar(currentLives);
+}
