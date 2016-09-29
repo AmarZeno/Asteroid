@@ -95,32 +95,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Audio\bgm.mp3" />
     <Content Include="Assets\Audio\engine_loop.mp3" />
     <Content Include="Assets\Audio\engine_sound_initial.mp3" />
-    <Content Include="Assets\Fonts\ArcadeClassic\arcadeclassic-demo.html" />
-    <Content Include="Assets\Fonts\ArcadeClassic\generator_config.txt" />
-    <Content Include="Assets\Fonts\ArcadeClassic\specimen_files\grid_12-825-55-15.css" />
-    <Content Include="Assets\Fonts\ArcadeClassic\specimen_files\specimen_stylesheet.css" />
-    <Content Include="Assets\Fonts\ArcadeClassic\stylesheet.css" />
-    <Content Include="Assets\Images\asteroids_grey_medium.png" />
-    <Content Include="Assets\Images\asteroids_grey_small.png" />
+    <Content Include="Assets\Images\Asteroids_Grey_Med.png" />
+    <Content Include="Assets\Images\Asteroids_Grey_Small.png" />
     <Content Include="Assets\Images\asteroids_red.png" />
     <Content Include="Assets\Images\Asteroids_Red_Med.png" />
     <Content Include="Assets\Images\Asteroids_Red_Small.png" />
     <Content Include="Assets\Images\Asteroids_Grey_Large.png" />
-    <Content Include="Assets\Images\background_star_set_2.png" />
-    <Content Include="Assets\Images\background_galaxy.png" />
-    <Content Include="Assets\Images\background_star_set_1.png" />
+    <Content Include="Assets\Images\background.jpg" />
+    <Content Include="Assets\Images\background.png" />
     <Content Include="Assets\Images\blue_laser.png" />
-    <Content Include="Assets\Images\fire1.png" />
-    <Content Include="Assets\Images\fire2.png" />
-    <Content Include="Assets\Images\fire3.png" />
-    <Content Include="Assets\Images\player_power_bar.png" />
-    <Content Include="Assets\Images\player_power_bar_fill.png" />
     <Content Include="Assets\Images\ship.png" />
     <Content Include="Assets\Images\ship_sprite_new.png" />
-    <Content Include="Assets\Images\smoke-puff.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -129,16 +116,13 @@
     <Content Include="Scripts\game.js" />
     <Content Include="Scripts\Managers\asteroidManager.js" />
     <Content Include="Scripts\Managers\audioManager.js" />
-    <Content Include="Scripts\Managers\backgroundManager.js" />
     <Content Include="Scripts\Managers\configurationManager.js" />
+    <Content Include="Scripts\Managers\pickupManager.js" />
     <Content Include="Scripts\Managers\playerManager.js" />
     <Content Include="Scripts\Managers\uIManager.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Assets\Audio\engine_loop.ogg" />
     <Content Include="Assets\Audio\engine_sound_inital.ogg" />
-    <Content Include="Assets\Audio\bgm.ogg" />
-    <Content Include="Assets\Fonts\ArcadeClassic\arcadeclassic-webfont.woff" />
-    <Content Include="Assets\Fonts\ArcadeClassic\arcadeclassic-webfont.woff2" />
     <None Include="Properties\PublishProfiles\smedashboard.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -163,13 +147,14 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\Fonts\" />
     <Folder Include="Styles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Core.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
