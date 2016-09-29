@@ -159,9 +159,9 @@ function capturePlayerActions() {
 
     // Rotation
     if (arrowKeys.left.isDown) {
-        this.ship.body.angularVelocity = -500;
+        this.ship.body.angularVelocity = -475;
     } else if (arrowKeys.right.isDown) {
-        this.ship.body.angularVelocity = 500;
+        this.ship.body.angularVelocity = 475;
     } else {
         this.ship.body.angularVelocity = 0;
     }
@@ -280,7 +280,10 @@ function startBlastEmitter() {
 function alertLowHealth() {
     if (currentLives == 1) {
         didHit = true;
-    } 
+    }
+    else {
+        didHit = false;
+    }
 }
 
 function pusheverythingaway() {

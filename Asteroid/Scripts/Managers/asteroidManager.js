@@ -9,8 +9,8 @@ var AsteroidTime = 0;
 var RandomCreatePosition;
 
 var totalexistingAsteroids = 4;
-var maxAsteroids = 20;
-var asteroidSpawnTime = 10000;
+var maxAsteroids = 12;
+var asteroidSpawnTime = 9000;
 var lastSpawnTime = 0;
 var asteroidDecay = 20000;
 var emitter;
@@ -102,7 +102,7 @@ AsteroidsUpdate = function () {
         lastSpawnTime = game.time.now;
         
         if (asteroidSpawnTime > 2000) {
-            asteroidSpawnTime -= 1000;
+            asteroidSpawnTime -= 750;
         }
 
         LargeAsteroidSpawn();
@@ -169,9 +169,9 @@ function LargeAsteroidSpawn() {
             Asteroid.reset(Math.random() * game.width, game.height + 100);
             Asteroid.rotation = Math.random() * Math.PI / 2 + Math.PI * 5 / 4;
         }
-        game.physics.arcade.velocityFromRotation(Asteroid.rotation, 200, Asteroid.body.velocity);
+        game.physics.arcade.velocityFromRotation(Asteroid.rotation, 250, Asteroid.body.velocity);
         Asteroid.body.bounce.set(1);
-        Asteroid.health = 8;
+        Asteroid.health = 7;
         Asteroid.body.mass = 650;
         Asteroid.birthTime = game.time.now;
     }
@@ -289,7 +289,7 @@ function AsteroidSplitLarge(sprite, impactSprite) {
         game.physics.arcade.velocityFromRotation(Asteroid.rotation, newSpeed, Asteroid.body.velocity);
         Asteroid.body.bounce.set(1);
         Asteroid.body.mass = 300;
-        Asteroid.health = 5;
+        Asteroid.health = 4;
 
         Asteroid = Asteroids_Grey_Med.getFirstExists(false);
         Asteroid.revive();
@@ -306,7 +306,7 @@ function AsteroidSplitLarge(sprite, impactSprite) {
 
         Asteroid.body.bounce.set(1);
         Asteroid.body.mass = 300;
-        Asteroid.health = 5;
+        Asteroid.health = 4;
 
         sprite.kill();
     }
