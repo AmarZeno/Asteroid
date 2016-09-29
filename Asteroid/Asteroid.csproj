@@ -95,8 +95,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Audio\asteroid_to_asteroid_collision.mp3" />
     <Content Include="Assets\Audio\engine_loop.mp3" />
     <Content Include="Assets\Audio\engine_sound_initial.mp3" />
+    <Content Include="Assets\Audio\player_death.mp3" />
+    <Content Include="Assets\Audio\player_hit.mp3" />
     <Content Include="Assets\Images\Asteroids_Grey_Med.png" />
     <Content Include="Assets\Images\Asteroids_Grey_Small.png" />
     <Content Include="Assets\Images\asteroids_red.png" />
@@ -123,6 +126,9 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Assets\Audio\engine_loop.ogg" />
     <Content Include="Assets\Audio\engine_sound_inital.ogg" />
+    <Content Include="Assets\Audio\asteroid_to_asteroid_collision.ogg" />
+    <Content Include="Assets\Audio\player_death.ogg" />
+    <Content Include="Assets\Audio\player_hit.ogg" />
     <None Include="Properties\PublishProfiles\smedashboard.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
