@@ -170,6 +170,9 @@ function LargeAsteroidSpawn() {
     Asteroid.revive();
 
     if (Asteroid != null) {
+
+        game.debug.body(Asteroid, 'red', false); game.debug.spriteBounds(Asteroid, 'pink', false);
+
         RandomCreatePosition = Math.random() * 4;
         if (RandomCreatePosition >= 0 && RandomCreatePosition < 1) {
             Asteroid.reset(-100, Math.random() * game.height);

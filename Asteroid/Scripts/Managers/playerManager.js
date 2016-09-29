@@ -49,6 +49,10 @@ function playerManagerUpdate(thisGame) {
     startBlastEmitter();
     alertLowHealth();
     updateGasEmitters();
+
+    if (this.ship) {
+        game.debug.body(this.ship, 'red', false); game.debug.spriteBounds(this.ship, 'pink', false);
+    }
 }
 
 
@@ -68,7 +72,9 @@ function addPlayer(thisGame) {
     this.ship.animations.add('acceleratehit', [7, 8], 5, true);
     this.ship.animations.play('normal');
     this.ship.name = "ship";
-    
+
+   // game.debug.body(this.ship, 'red', false); game.debug.spriteBounds(this.ship, 'pink', false);
+
     // this.ship.anchor
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
 

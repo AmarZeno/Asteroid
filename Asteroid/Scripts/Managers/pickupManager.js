@@ -99,13 +99,13 @@ SwitchModePickupsUpdate = function ()
     }
 }
 
-function EatingNormalPickups(sprite1,sprite2)
+function EatingNormalPickups(sprite1, sprite2)
 {
     sprite2.kill();
     updateUI(100);
     NormalPickupsTime = game.time.now;
     pickupTimerText.kill();
-
+    increaseCurrentHealth();
 }
 
 function EatingSwitchModePickups(sprite1,sprite2)
