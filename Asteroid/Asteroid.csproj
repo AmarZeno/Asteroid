@@ -123,6 +123,7 @@
     <Content Include="Assets\Images\glow circle.png" />
     <Content Include="Assets\Images\glow circle1.png" />
     <Content Include="Assets\Images\logo.png" />
+    <Content Include="Assets\Images\pickup.png" />
     <Content Include="Assets\Images\shield_new.png" />
     <Content Include="Assets\Images\ship.png" />
     <Content Include="Assets\Images\ship_sprite_new.png" />

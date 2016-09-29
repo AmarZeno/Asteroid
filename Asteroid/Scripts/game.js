@@ -66,7 +66,7 @@ var GameState = {
         backgroundManagerUpdate(this);
         if (!gameOver) {
             playerManagerUpdate(this);
-            NormalPickupsUpdate();
+            NormalPickupsUpdate(this);
             updateUI();
         }
         AsteroidsUpdate();

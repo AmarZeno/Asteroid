@@ -15,7 +15,7 @@ var first = true;
 
 
 PickupsLoad = function () {
-    game.load.image('NormalPickups', 'Assets/Images/glow circle1.png');
+    game.load.image('NormalPickups', 'Assets/Images/pickup.png');
 //    game.load.image('SwitchModePickups', 'Assets/Images/bigstar.jpg');
 }
 
@@ -33,13 +33,13 @@ PickupsCreate = function ()
     NormalPickups.createMultiple(totalexistingNormalPickups, 'NormalPickups');
     NormalPickups.setAll('anchor.x', 0.5);
     NormalPickups.setAll('anchor.y', 0.5);
-
+  //  NormalPickups.setAll('scale', 1);
 //    SwitchModePickups.createMultiple(totalexistingSwitchModePickups, 'SwitchModePickups');
  //   SwitchModePickups.setAll('anchor.x', 0.5);
  //   SwitchModePickups.setAll('anchor.y', 0.5);
 }
 
-NormalPickupsUpdate = function ()
+NormalPickupsUpdate = function (thisGame)
 {
 
     if (game.time.now > NormalPickupsTime)
@@ -48,6 +48,11 @@ NormalPickupsUpdate = function ()
 
         if (NormalPickup)
         {
+            NormalPickup.scale.setTo(0.8);
+            game.add.tween(NormalPickup.scale).to({ x: 0, y: 0 }, 10000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+          //  game.add.tween(NormalPickup.scale).to({ scaleX: 5, scaleY: 5 }, 500, Phaser.Easing.Back.Out, true, 1000);
+
+
             var pickupPositionX = Math.random() * game.width ;
             var pickupPositionY = Math.random() * game.height;
             if (pickupPositionX < NormalPickup.width / 2 || pickupPositionX > (game.width - NormalPickup.width / 2) ||
