@@ -21,7 +21,7 @@ var sheild;
 var sheilds;
 var sheildtime = 0;
 var sheildinterval = 3000;
-var havingsheild = true;
+let havingsheild = true;
 
 var pushradius = 500;
 
@@ -168,22 +168,22 @@ function capturePlayerActions() {
 
     screenWrap(this.ship, 0);
 
-    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && laserTime < game.time.now) {
-        if (havingsheild) {
-            sheild = sheilds.getFirstExists(true);
-            if (sheild) {
-                pusheverythingaway();
-                sheild.kill();
-                sheildtime = game.time.now + sheildinterval;
-                havingsheild = false;
-                return;
-            }
-        }
+    //if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && laserTime < game.time.now) {
+    //    if (havingsheild) {
+    //        sheild = sheilds.getFirstExists(true);
+    //        if (sheild) {
+    //            pusheverythingaway();
+    //            sheild.kill();
+    //            sheildtime = game.time.now + sheildinterval;
+    //            havingsheild = false;
+    //            return;
+    //        }
+    //    }
 
-        if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-            //  fireLaser();
-        }
-    }
+    //    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+    //        //  fireLaser();
+    //    }
+    //}
 }
 
 
@@ -239,14 +239,29 @@ function checkLaserCollision() {
 }
 
 function playerRespawn(sprite1, sprite2) {
+
     AsteroidsCollide(sprite1, sprite2);
+
+    if (havingsheild == true)
+    {
+        sheild = sheilds.getFirstExists(true);
+
+        if(sheild)
+        {
+            sheildtime = game.time.now + sheildinterval;
+            sheild.kill();
+            havingsheild = false;
+            return;
+        }
+    }
 
     // make sure collision is active for asteroid
     if ((sprite1.name == "ship" && sprite2.canCollide) || (sprite2.name == "ship" && sprite1.canCollide)) {
-
-        updateLivesUI();
-        didHit = true;
-        setTimeout(function () { didHit = false; }, 1000);
+        if (havingsheild == false) {
+            updateLivesUI();
+            didHit = true;
+            setTimeout(function () { didHit = false; }, 1000);
+        }
     }
 }
 
@@ -258,6 +273,7 @@ function startBlastEmitter() {
         this.ship.kill();
         gasEmitter.on = false;
         playShipBlastSound();
+        sheilds.removeAll();
     }
 }
 
@@ -293,14 +309,13 @@ function updatesheild() {
             sheild.body.setCircle(sheild.width / 3, sheild.width / 6, sheild.height / 6);
             sheild.alpha = 0.5;
             havingsheild = true;
-
             return;
         }
     }
     sheild = sheilds.getFirstExists(true);
     if (sheild) {
         sheild.position = this.ship.position;
-        game.debug.body(sheild, 'red', false);
+        //game.debug.body(sheild, 'red', false);
         game.physics.arcade.collide(sheild, Asteroids_Grey, sheildcollision, null, this);
         game.physics.arcade.collide(sheild, Asteroids_Grey_Med, sheildcollision, null, this);
         game.physics.arcade.collide(sheild, Asteroids_Grey_Small, sheildcollision, null, this);
@@ -309,12 +324,11 @@ function updatesheild() {
 
 function sheildcollision(sprite1, sprite2) {
     AsteroidsCollide(sprite1, sprite2);
-    if (sprite1.name == "sheilds" && sprite2.canCollide) {
+    if (sprite1.name == "sheilds") {
         havingsheild = false;
         sheildtime = game.time.now + sheildinterval;
         sprite1.kill();
     }
-
 }
 
 function beingpushedaway(sprite, pushedspeed) {
