@@ -1,4 +1,6 @@
-﻿/*
+﻿/// <reference path="audioManager.js" />
+
+/*
 VARIABLES
 */
 
@@ -224,6 +226,7 @@ function startBlastEmitter() {
         emitter.start(true, 15000, null, 30);
         this.ship.kill();
         gasEmitter.on = false;
+        playShipBlastSound();
     }
 }
 
