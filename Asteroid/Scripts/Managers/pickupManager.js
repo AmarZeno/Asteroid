@@ -39,6 +39,7 @@ PickupsCreate = function ()
 
 NormalPickupsUpdate = function ()
 {
+
     if (game.time.now > NormalPickupsTime)
     {
         NormalPickup = NormalPickups.getFirstExists(false);
@@ -116,3 +117,4 @@ function EatingSwitchModePickups(sprite1,sprite2)
     else
         this.ship.Ispushing = true;
 }
+

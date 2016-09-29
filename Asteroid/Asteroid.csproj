@@ -120,6 +120,7 @@
     <Content Include="Assets\Images\fire3.png" />
     <Content Include="Assets\Images\glow circle.png" />
     <Content Include="Assets\Images\glow circle1.png" />
+    <Content Include="Assets\Images\sheild.png" />
     <Content Include="Assets\Images\ship.png" />
     <Content Include="Assets\Images\ship_sprite_new.png" />
     <Content Include="Assets\Images\smoke-puff.png" />
