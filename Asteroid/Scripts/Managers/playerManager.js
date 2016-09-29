@@ -120,7 +120,7 @@ function capturePlayerActions() {
     screenWrap(this.ship, 0);
 
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && laserTime < game.time.now) {
-        fireLaser();
+      //  fireLaser();
         if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
             //  fireLaser();
         }
