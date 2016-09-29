@@ -76,4 +76,4 @@ var GameState = {
 
 game.state.add('GameState', GameState);
 game.state.add('BootState', BootState);
-game.state.start('GameState');
+game.state.start('BootState');
