@@ -36,7 +36,7 @@ function playerManagerLoad(thisGame) {
     thisGame.load.image('fire1', 'Assets/Images/fire1.png');
     thisGame.load.image('fire2', 'Assets/Images/fire2.png');
     thisGame.load.image('fire3', 'Assets/Images/fire3.png');
-    thisGame.load.image('smoke', 'Assets/Images/smoke-puff.png');
+    thisGame.load.image('smoke', 'Assets/Images/smoke.png');
     thisGame.load.image('sheilds', 'Assets/Images/shield_new.png');
     //thisGame.OVERLAP_BIAS = 50;
 }
@@ -105,7 +105,7 @@ function addGasEmitters() {
 
     gasEmitter.gravity = 200;
     gasEmitter.setAlpha(1, 0, 3000);
-    gasEmitter.setScale(0.8, 0, 0.8, 0, 1000);
+    gasEmitter.setScale(0.5, 0, 0.5, 0, 1000);
 
     gasEmitter.start(false, 3000, 5);
 }

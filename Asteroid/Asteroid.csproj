@@ -129,6 +129,7 @@
     <Content Include="Assets\Images\ship.png" />
     <Content Include="Assets\Images\ship_sprite_new.png" />
     <Content Include="Assets\Images\smoke-puff.png" />
+    <Content Include="Assets\Images\smoke.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
