@@ -166,7 +166,7 @@ function capturePlayerActions() {
         this.ship.body.angularVelocity = 0;
     }
 
-    screenWrap(this.ship, 0);
+    worldWrap(this.ship);
 
     //if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && laserTime < game.time.now) {
     //    if (havingsheild) {
@@ -332,4 +332,8 @@ function sheildcollision(sprite1, sprite2) {
 function beingpushedaway(sprite, pushedspeed) {
     if (game.physics.arcade.distanceBetween(this.ship, sprite) < pushradius)
         game.physics.arcade.moveToObject(sprite, ship.position, -pushedspeed, 0, 0);
+}
+
+function worldWrap(thisSprite) {
+    game.world.wrap(thisSprite, 150);
 }

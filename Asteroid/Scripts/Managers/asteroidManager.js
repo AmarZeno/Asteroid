@@ -109,9 +109,9 @@ AsteroidsUpdate = function () {
     }
 
     // Screen wrapping
-    Asteroids_Grey.forEachExists(screenWrap, this, 0);
-    Asteroids_Grey_Med.forEachExists(screenWrap, this, 0);
-    Asteroids_Grey_Small.forEachExists(screenWrap, this, 0);
+    Asteroids_Grey.forEachExists(worldWrap, this, 0);
+    Asteroids_Grey_Med.forEachExists(worldWrap, this, 0);
+    Asteroids_Grey_Small.forEachExists(worldWrap, this, 0);
 
     // update if asteroids can collide
     Asteroids_Grey.forEachExists(checkBirthTime, this);
@@ -398,3 +398,6 @@ function ShootAsteroids(sprite1, sprite2) {
 }
 
 
+function worldWrap(thisSprite) {
+    game.world.wrap(thisSprite, 150);
+}
