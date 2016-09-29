@@ -99,7 +99,9 @@
     <Content Include="Assets\Audio\engine_loop.mp3" />
     <Content Include="Assets\Audio\engine_sound_initial.mp3" />
     <Content Include="Assets\Audio\player_death.mp3" />
+    <Content Include="Assets\Audio\player_health_pickup.mp3" />
     <Content Include="Assets\Audio\player_hit.mp3" />
+    <Content Include="Assets\Audio\player_pickup2.mp3" />
     <Content Include="Assets\Fonts\ArcadeClassic\arcadeclassic-demo.html" />
     <Content Include="Assets\Fonts\ArcadeClassic\generator_config.txt" />
     <Content Include="Assets\Fonts\ArcadeClassic\specimen_files\grid_12-825-55-15.css" />
@@ -145,6 +147,8 @@
     <Content Include="Assets\Audio\player_hit.ogg" />
     <Content Include="Assets\Fonts\ArcadeClassic\arcadeclassic-webfont.woff" />
     <Content Include="Assets\Fonts\ArcadeClassic\arcadeclassic-webfont.woff2" />
+    <Content Include="Assets\Audio\player_health_pickup.ogg" />
+    <Content Include="Assets\Audio\player_pickup2.ogg" />
     <None Include="Properties\PublishProfiles\smedashboard.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

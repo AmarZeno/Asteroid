@@ -1,4 +1,6 @@
-﻿var NormalPickups;
+﻿/// <reference path="audioManager.js" />
+
+var NormalPickups;
 //var SwitchModePickups;
 var totalexistingNormalPickups = 1;
 var totalexistingSwitchModePickups = 1;
@@ -102,6 +104,7 @@ SwitchModePickupsUpdate = function ()
 
 function EatingNormalPickups(sprite1, sprite2)
 {
+    playPickupHealth();
     sprite2.kill();
     updateUI(100);
     NormalPickupsTime = game.time.now;

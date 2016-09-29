@@ -142,9 +142,9 @@ function capturePlayerActions() {
         this.ship.body.maxVelocity.x = 400;
         this.ship.body.maxVelocity.y = 400;
         if (didHit == false) {
-            this.ship.animations.play('accelerate');
+            this.ship.animations.play('normal');
         } else {
-            this.ship.animations.play('acceleratehit');
+            this.ship.animations.play('normalhit');
         }
         gasEmitter.on = true;
     } else {
