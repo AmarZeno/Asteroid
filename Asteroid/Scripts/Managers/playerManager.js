@@ -51,7 +51,7 @@ function playerManagerUpdate(thisGame) {
     updateGasEmitters();
 
     if (this.ship) {
-        game.debug.body(this.ship, 'red', false); game.debug.spriteBounds(this.ship, 'pink', false);
+      //  game.debug.body(this.ship, 'red', false); game.debug.spriteBounds(this.ship, 'pink', false);
     }
 }
 
@@ -204,7 +204,7 @@ function checkPlayerCollision() {
     game.physics.arcade.collide(this.ship, Asteroids_Grey, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, Asteroids_Grey_Med, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, Asteroids_Grey_Small, playerRespawn, null, this);
-    game.physics.arcade.collide(this.ship, NormalPickups, EatingNormalPickups, null, this);
+    game.physics.arcade.overlap(this.ship, NormalPickups, EatingNormalPickups, null, this);
 }
 
 function checkLaserCollision() {

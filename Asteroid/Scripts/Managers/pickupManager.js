@@ -58,7 +58,7 @@ NormalPickupsUpdate = function ()
             NormalPickupsTime = game.time.now + interval;
             NormalPickupbirthtime = game.time.now;
             NormalPickup.body.setCircle(NormalPickup.width / 3, NormalPickup.width / 6, NormalPickup.height / 6);
-            game.debug.body(NormalPickup, 'red', false); game.debug.spriteBounds(this.NormalPickup, 'pink', false);
+          //  game.debug.body(NormalPickup, 'red', false); game.debug.spriteBounds(this.NormalPickup, 'pink', false);
             pickupTimerText.setText("5");
 
             // Hack to fix the first misaligned collision
