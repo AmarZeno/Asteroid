@@ -74,7 +74,7 @@ function handleInitialKeyboardEvents(thisGame) {
                     game.state.start('GameState');
                     isSelectionOnTop = false;
                 } else {
-
+                    window.close();
                 }
                 break;
             default:

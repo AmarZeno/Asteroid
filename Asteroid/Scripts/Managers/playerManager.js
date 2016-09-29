@@ -130,7 +130,7 @@ function addBlastEmitters() {
     emitter.makeParticles(['fire1', 'fire2', 'fire3', 'smoke']);
     emitter.gravity = 200;
     emitter.setAlpha(1, 0, 3000);
-    emitter.setScale(0.8, 0, 0.8, 0, 3000);
+    emitter.setScale(2, 0, 2, 0, 3000);
     
    // startBlastEmitter();
 }

@@ -92,7 +92,7 @@ function MakeHitEmitter() {
     hitEmitter.makeParticles(['dust']);
     //emitter.gravity = 200;
     hitEmitter.setAlpha(1, 0, 3000);
-    hitEmitter.setScale(0.8, 0, 0.8, 0, 3000);
+    hitEmitter.setScale(0.3, 0, 0.3, 0, 3000);
 }
 
 AsteroidsUpdate = function () {
