@@ -14,6 +14,8 @@ let didHit = false;
 
 var emitter;
 
+var gasEmitter;
+
 /*
 ENGINE CALLS
 */
@@ -31,6 +33,7 @@ function playerManagerLoad(thisGame) {
 
 // Extended system draw method
 function playerManagerCreate(thisGame) {
+    addGasEmitters();
     addPlayer(thisGame);
     addPlayerControls(thisGame);
     addBackgroundSoundEffects(thisGame);
@@ -45,6 +48,7 @@ function playerManagerUpdate(thisGame) {
     checkLaserCollision(); 
     startBlastEmitter();
     alertLowHealth();
+    updateGasEmitters();
 }
 
 
@@ -77,6 +81,32 @@ function addPlayerControls(thisGame) {
     arrowKeys = thisGame.game.input.keyboard.createCursorKeys();
 }
 
+function addGasEmitters() {
+    gasEmitter = game.add.emitter(game.world.centerX, game.world.centerY, 400);
+
+    gasEmitter.makeParticles(['fire1', 'fire2', 'fire3', 'smoke']);
+
+    gasEmitter.gravity = 200;
+    gasEmitter.setAlpha(1, 0, 3000);
+    gasEmitter.setScale(0.8, 0, 0.8, 0, 1000);
+
+    gasEmitter.start(false, 3000, 5);
+}
+
+function updateGasEmitters() {
+    var px = this.ship.body.velocity.x;
+    var py = this.ship.body.velocity.y;
+
+    px *= -1;
+    py *= -1;
+
+    gasEmitter.minParticleSpeed.set(px, py);
+    gasEmitter.maxParticleSpeed.set(px, py);
+
+    gasEmitter.emitX = this.ship.x;
+    gasEmitter.emitY = this.ship.y;
+}
+
 function addBlastEmitters() {
     // Emitters
     emitter = game.add.emitter(game.world.centerX, game.world.centerY, 400);
@@ -99,6 +129,7 @@ function capturePlayerActions() {
         } else {
             this.ship.animations.play('acceleratehit');
         }
+        gasEmitter.on = true;
     } else {
         this.ship.body.acceleration.set(0);
         if (didHit == false) {
@@ -106,6 +137,7 @@ function capturePlayerActions() {
         } else {
             this.ship.animations.play('normalhit');
         }
+        gasEmitter.on = false;
     }
 
     // Rotation
@@ -197,6 +229,7 @@ function startBlastEmitter() {
         emitter.emitY = this.ship.y;
         emitter.start(true, 15000, null, 30);
         this.ship.kill();
+        gasEmitter.on = false;
         playShipBlastSound();
     }
 }
