@@ -4,6 +4,7 @@
 var displayText;
 var deathText;
 var replayText;
+var scoreText;
 let gameOver;
 
 
@@ -24,10 +25,12 @@ initUI = function (thisGame) {
     displayText = thisGame.add.text(50, 50, currentTime, { font: "60px arcadeclassicregular", fill: "#ffffff", align: "center" });
     deathText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY, "", { font: "90px arcadeclassicregular", fill: "#ffffff", align: "left" });
     deathText.anchor.set(0.5);
-    replayText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY + 90, "", { font: "50px arcadeclassicregular", fill: "#ffffff", align: "left" });
+    replayText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY + 150, "", { font: "50px arcadeclassicregular", fill: "#ffffff", align: "left" });
     replayText.anchor.set(0.5);
     replayText.inputEnabled = true;
     replayText.events.onInputDown.add(replayClick, this);
+    scoreText = thisGame.add.text(thisGame.world.centerX, thisGame.world.centerY + 90, "", { font: "50px arcadeclassicregular", fill: "#ffffff", align: "left" });
+    scoreText.anchor.set(0.5);
     createHealthBar(thisGame);
 }
 
@@ -53,6 +56,7 @@ updateLivesUI = function () {
     if (currentLives == 0) {
         deathText.setText("Game Over");
         replayText.setText("Play Again?");
+        scoreText.setText("Your survival score is "+displayText.text);
         gameOver = true;
     }
 }
