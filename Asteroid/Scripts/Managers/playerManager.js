@@ -242,19 +242,17 @@ function playerRespawn(sprite1, sprite2) {
 
     AsteroidsCollide(sprite1, sprite2);
 
-    if (havingsheild == true)
-    {
+    if (havingsheild == true) {
         sheild = sheilds.getFirstExists(true);
 
-        if(sheild)
-        {
+        if (sheild) {
             sheildtime = game.time.now + sheildinterval;
             sheild.kill();
             havingsheild = false;
             return;
         }
-    }
-
+    } 
+ 
     // make sure collision is active for asteroid
     if ((sprite1.name == "ship" && sprite2.canCollide) || (sprite2.name == "ship" && sprite1.canCollide)) {
         if (havingsheild == false) {
@@ -280,9 +278,6 @@ function startBlastEmitter() {
 function alertLowHealth() {
     if (currentLives == 1) {
         didHit = true;
-    }
-    else {
-        didHit = false;
     }
 }
 

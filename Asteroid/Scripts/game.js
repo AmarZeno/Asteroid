@@ -2,8 +2,29 @@
 /// <reference path="Managers/configurationManager.js" />
 /// <reference path="Managers/playerManager.js" />
 /// <reference path="Managers/audioManager.js" />
+/// <reference path="Managers/bootManager.js" />
 
 var game = new Phaser.Game(1920, 1080, Phaser.AUTO);
+
+var BootState = {
+    init: function () {
+        configurationManagerInit(this);
+        // Start physics system
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
+    },
+
+    preload: function () {
+        bootManagerLoad(this);
+    },
+
+    create: function () {
+        bootManagerCreate(this);
+    },
+
+    update: function () {
+        bootManagerUpdate(this);
+    }
+}
 
 var GameState = {
 
@@ -54,4 +75,5 @@ var GameState = {
 };
 
 game.state.add('GameState', GameState);
+game.state.add('BootState', BootState);
 game.state.start('GameState');

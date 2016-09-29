@@ -122,6 +122,7 @@
     <Content Include="Assets\Images\fire3.png" />
     <Content Include="Assets\Images\glow circle.png" />
     <Content Include="Assets\Images\glow circle1.png" />
+    <Content Include="Assets\Images\logo.png" />
     <Content Include="Assets\Images\sheild.png" />
     <Content Include="Assets\Images\ship.png" />
     <Content Include="Assets\Images\ship_sprite_new.png" />
@@ -135,6 +136,7 @@
     <Content Include="Scripts\Managers\asteroidManager.js" />
     <Content Include="Scripts\Managers\audioManager.js" />
     <Content Include="Scripts\Managers\backgroundManager.js" />
+    <Content Include="Scripts\Managers\bootManager.js" />
     <Content Include="Scripts\Managers\configurationManager.js" />
     <Content Include="Scripts\Managers\pickupManager.js" />
     <Content Include="Scripts\Managers\playerManager.js" />

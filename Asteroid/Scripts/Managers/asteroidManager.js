@@ -13,7 +13,7 @@ var maxAsteroids = 12;
 var asteroidSpawnTime = 9000;
 var lastSpawnTime = 0;
 var asteroidDecay = 20000;
-var emitter;
+var hitEmitter;
 
 
 
@@ -88,11 +88,11 @@ AsteroidsCreate = function () {
 
 function MakeHitEmitter() {
 
-    emitter = game.add.emitter(game.world.centerX, game.world.centerY, 400);
-    emitter.makeParticles(['dust']);
+    hitEmitter = game.add.emitter(game.world.centerX, game.world.centerY, 400);
+    hitEmitter.makeParticles(['dust']);
     //emitter.gravity = 200;
-    emitter.setAlpha(1, 0, 3000);
-    emitter.setScale(0.8, 0, 0.8, 0, 3000);
+    hitEmitter.setAlpha(1, 0, 3000);
+    hitEmitter.setScale(0.8, 0, 0.8, 0, 3000);
 }
 
 AsteroidsUpdate = function () {
@@ -138,9 +138,9 @@ function PlayAsteroidEmitter(asteroid, otherAsteroid) {
     var hitX = midpoint.x;
     var hitY = midpoint.y;
 
-    emitter.emitX = hitX;
-    emitter.emitY = hitY;
-    emitter.start(true, 500, null, 100);
+    hitEmitter.emitX = hitX;
+    hitEmitter.emitY = hitY;
+    hitEmitter.start(true, 500, null, 100);
 }
 
 function LargeAsteroidSpawn() {
