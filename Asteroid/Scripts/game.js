@@ -18,7 +18,7 @@ var GameState = {
 
     preload: function () {
         // Load asset
-        LoadBackground(this);
+        backgroundManagerLoad(this);
         playerManagerLoad(this);
         AsteroidsLoad();
         preloadUI(this);
@@ -32,7 +32,7 @@ var GameState = {
     create: function () {
         // Access loaded asset
        // this.background = this.add.sprite(0, 0, 'background');
-        drawBackground(this);
+        backgroundManagerCreate(this);
         playerManagerCreate(this);
         AsteroidsCreate();
         PickupsCreate();
@@ -40,12 +40,13 @@ var GameState = {
         audioManagerCreate(this);
     },
 
-    update: function () {
+    update: function () { 
         // Game loop
+        backgroundManagerUpdate(this);
         if (!gameOver) {
             playerManagerUpdate(this);
             NormalPickupsUpdate();
-    //        SwitchModePickupsUpdate();
+            updateUI();
         }
         AsteroidsUpdate();
         audioManagerUpdate(this);
@@ -54,15 +55,3 @@ var GameState = {
 
 game.state.add('GameState', GameState);
 game.state.start('GameState');
-
-/*
-CUSTOM ACCESSORS
-*/
-
-function LoadBackground(thisGame) {
-    thisGame.load.image('background', 'Assets/Images/background.png');
-}
-
-function drawBackground(thisGame) {
-    thisGame.background = thisGame.add.sprite(0, 0, 'background');
-}

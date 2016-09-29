@@ -23,6 +23,7 @@ PickupsCreate = function ()
     NormalPickups.enableBody = true;
     NormalPickups.physicsBodytype = Phaser.Physics.ARCADE;
     
+    
    // SwitchModePickups = game.add.group();
   //  SwitchModePickups.enableBody = true;
   //  SwitchModePickups.physicsBodytype = Phaser.Physics.ARCADE;

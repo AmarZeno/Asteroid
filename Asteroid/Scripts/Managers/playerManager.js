@@ -1,4 +1,6 @@
-﻿/*
+﻿/// <reference path="audioManager.js" />
+
+/*
 VARIABLES
 */
 
@@ -10,6 +12,8 @@ var laserTime = 0;
 
 let didHit = false;
 
+var emitter;
+
 /*
 ENGINE CALLS
 */
@@ -18,6 +22,10 @@ function playerManagerLoad(thisGame) {
     thisGame.load.image('ship', 'Assets/Images/ship.png');
     thisGame.load.spritesheet('ship_sprite', 'Assets/Images/ship_sprite_new.png', 60, 30, 9);
     thisGame.load.image('laser', 'Assets/Images/blue_laser.png');
+    thisGame.load.image('fire1', 'Assets/Images/fire1.png');
+    thisGame.load.image('fire2', 'Assets/Images/fire2.png');
+    thisGame.load.image('fire3', 'Assets/Images/fire3.png');
+    thisGame.load.image('smoke', 'Assets/Images/smoke-puff.png');
     //thisGame.OVERLAP_BIAS = 50;
 }
 
@@ -27,13 +35,16 @@ function playerManagerCreate(thisGame) {
     addPlayerControls(thisGame);
     addBackgroundSoundEffects(thisGame);
     createLaserCollection();
+    addBlastEmitters();
 }
 
 // Extended system update method
 function playerManagerUpdate(thisGame) {
     capturePlayerActions();
     checkPlayerCollision();
-    checkLaserCollision();
+    checkLaserCollision(); 
+    startBlastEmitter();
+    alertLowHealth();
 }
 
 
@@ -56,10 +67,25 @@ function addPlayer(thisGame) {
     
     // this.ship.anchor
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
+
+    this.ship.body.mass = 125;
+    //this.ship.body.bounce.set(1);
+
 }
 
 function addPlayerControls(thisGame) {
     arrowKeys = thisGame.game.input.keyboard.createCursorKeys();
+}
+
+function addBlastEmitters() {
+    // Emitters
+    emitter = game.add.emitter(game.world.centerX, game.world.centerY, 400);
+    emitter.makeParticles(['fire1', 'fire2', 'fire3', 'smoke']);
+    emitter.gravity = 200;
+    emitter.setAlpha(1, 0, 3000);
+    emitter.setScale(0.8, 0, 0.8, 0, 3000);
+    
+   // startBlastEmitter();
 }
 
 function capturePlayerActions() {
@@ -93,8 +119,11 @@ function capturePlayerActions() {
 
     screenWrap(this.ship, 0);
 
-    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && laserTime < game.time.now) {
       //  fireLaser();
+        if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+            //  fireLaser();
+        }
     }
 }
 
@@ -106,10 +135,13 @@ function createLaserCollection() {
     laserCollection.physicsBodyType = Phaser.Physics.ARCADE;
 
     //  Create one set of shooting at at time
-    laserCollection.createMultiple(1, 'laser');
+    laserCollection.createMultiple(10, 'laser');
     laserCollection.setAll('anchor.x', 0.5);
     laserCollection.setAll('anchor.y', 0.5);
     laserCollection.setAll('name', "laser");
+    //laserCollection.setAll('scale.x', 0.3);
+    //laserCollection.setAll('scale.y', 0.3);
+    //laserCollection.body.updateBounds(laser.scale.x, laser.scale.y);
 }
 
 function fireLaser() {
@@ -118,7 +150,6 @@ function fireLaser() {
 
         if (laser) {
             laser.reset(this.ship.body.x + 16, this.ship.body.y + 16);
-            laser.scale.setTo(0.3);
             laser.lifespan = 2000;
             laser.rotation = this.ship.rotation;
 
@@ -132,11 +163,8 @@ function fireLaser() {
 }
 
 function checkPlayerCollision() {
-   // game.physics.arcade.collide(this.ship, Asteroids_Red, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, Asteroids_Grey, playerRespawn, null, this);
-  //  game.physics.arcade.collide(this.ship, Asteroids_Red_Med, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, Asteroids_Grey_Med, playerRespawn, null, this);
-  //  game.physics.arcade.collide(this.ship, Asteroids_Red_Small, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, Asteroids_Grey_Small, playerRespawn, null, this);
     game.physics.arcade.collide(this.ship, NormalPickups, EatingNormalPickups, null, this);
 }
@@ -146,11 +174,8 @@ function checkLaserCollision() {
     if (laser != null) {
      //   game.debug.body(laser, 'red', false); game.debug.spriteBounds(this.laser, 'pink', false);
     }
-  //  game.physics.arcade.overlap(this.laser, Asteroids_Red, AsteroidsCollide, null, this);
     game.physics.arcade.overlap(this.laser, Asteroids_Grey, AsteroidsCollide, null, this);
-  //  game.physics.arcade.overlap(this.laser, Asteroids_Red_Med, AsteroidsCollide, null, this);
     game.physics.arcade.overlap(this.laser, Asteroids_Grey_Med, AsteroidsCollide, null, this);
-  //  game.physics.arcade.overlap(this.laser, Asteroids_Red_Small, AsteroidsCollide, null, this);
     game.physics.arcade.overlap(this.laser, Asteroids_Grey_Small, AsteroidsCollide, null, this);
 }
 
@@ -161,13 +186,23 @@ function playerRespawn(sprite1, sprite2) {
     if ((sprite1.name == "ship" && sprite2.canCollide) || (sprite2.name == "ship" && sprite1.canCollide)) {
 
         updateLivesUI();
-        //this.ship.body.angularVelocity = 0;
-        //this.ship.x = this.game.world.centerX;
-        //this.ship.y = this.game.world.centerY;
-        //this.ship.body.acceleration.set(0);
-        //this.ship.body.velocity.setTo(0, 0);
-        //this.ship.rotation = 0;
         didHit = true;
         setTimeout(function () { didHit = false; }, 1000);
     }
+}
+
+function startBlastEmitter() {
+    if (gameOver == true) { 
+        emitter.emitX = this.ship.x;
+        emitter.emitY = this.ship.y;
+        emitter.start(true, 15000, null, 30);
+        this.ship.kill();
+        playShipBlastSound();
+    }
+}
+
+function alertLowHealth() {
+    if (currentLives == 1) {
+        didHit = true;
+    } 
 }
