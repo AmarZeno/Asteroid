@@ -9,7 +9,7 @@ let gameOver;
 var currentTime = 0;
 
 
-var currentLives = 5;
+var currentLives = 5000;
 
 
 preloadUI = function (thisGame) {
@@ -43,7 +43,7 @@ updateLivesUI = function () {
 
     currentLives--;
 
-    updateHealthBar(currentLives);
+    //updateHealthBar(currentLives);
 
     if (currentLives == 0) {
         deathText.setText("Game Over");
