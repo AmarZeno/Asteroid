@@ -31,7 +31,7 @@ ENGINE CALLS
 // Extended system preload method
 function playerManagerLoad(thisGame) {
     thisGame.load.image('ship', 'Assets/Images/ship.png');
-    thisGame.load.spritesheet('ship_sprite', 'Assets/Images/ship_sprite_new.png', 60, 30, 9);
+    thisGame.load.spritesheet('ship_sprite', 'Assets/Images/ship_sprite_new2.png', 42, 30, 9);
     thisGame.load.image('laser', 'Assets/Images/blue_laser.png');
     thisGame.load.image('fire1', 'Assets/Images/fire1.png');
     thisGame.load.image('fire2', 'Assets/Images/fire2.png');
@@ -303,6 +303,8 @@ function updatesheild() {
         sheild = sheilds.getFirstExists(false);
 
         if (sheild) {
+            sheild.scale.setTo(1);
+            sheild.anchor.setTo(0.5);
             sheild.reset(this.ship.world.x, this.ship.world.y);
             sheild.body.setCircle(sheild.width / 3, sheild.width / 6, sheild.height / 6);
             sheild.alpha = 0.5;
