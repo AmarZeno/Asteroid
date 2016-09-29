@@ -1,4 +1,5 @@
 ﻿/// <reference path="../phaser.js" />
+/// <reference path="audioManager.js" />
 
 var Asteroid;
 var Asteroids_Grey;
@@ -240,6 +241,11 @@ AsteroidsUpdate = function () {
 }
 
 function AsteroidsCollide(sprite1, sprite2) {
+
+    // Play ship collide sound
+    if (sprite1.name == "ship") {
+        playShipCollideSound();
+    }
 
     if ((sprite1.name.includes("small") && sprite1.canCollide) || sprite1.name == "laser") {
         if (sprite1.name == "ship") {

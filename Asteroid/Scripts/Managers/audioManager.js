@@ -11,6 +11,7 @@ function audioManagerLoad(thisGame) {
     thisGame.load.audio('engineLoop', ['Assets/Audio/engine_loop.mp3', 'Assets/Audio/engine_loop.ogg']);
     thisGame.load.audio('bgm', ['Assets/Audio/bgm.mp3', 'Assets/Audio/bgm.ogg']);
     thisGame.load.audio('player_death', ['Assets/Audio/player_death.mp3', 'Assets/Audio/player_death.ogg']);
+    thisGame.load.audio('player_hit', ['Assets/Audio/player_hit.mp3', 'Assets/Audio/player_hit.ogg']);
 }
 
 function audioManagerCreate(thisGame) {
@@ -30,6 +31,7 @@ function addBackgroundSoundEffects(thisGame) {
     this.initialEngineSound.volume = 1;
     this.initialEngineSound.onStop.add(resumeEngineLoop, this);
     this.playerDeathSound = thisGame.add.audio('player_death');
+    this.playerCollideSound = thisGame.add.audio('player_hit');
     playBGM();
     //this.initialEngineSound.addEventListener('ended', function () {
     //    this.engineLoop.play();
@@ -85,6 +87,10 @@ function playInitialEngineSound() {
 
 function playShipBlastSound() {
     this.playerDeathSound.play();
+}
+
+function playShipCollideSound() {
+    this.playerCollideSound.play();
 }
 
 function stopEngineSound() {
