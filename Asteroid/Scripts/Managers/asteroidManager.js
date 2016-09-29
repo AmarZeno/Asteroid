@@ -170,16 +170,6 @@ AsteroidsCreate = function () {
             Asteroid.birthTime = game.time.now;
             //    AsteroidTime = game.time.now + 200;
                 //}
-
-
-
-           
-               
-
-
-
-
-
         }
     }
 }
@@ -242,9 +232,11 @@ AsteroidsUpdate = function () {
 
 function AsteroidsCollide(sprite1, sprite2) {
 
-    // Play ship collide sound
+    // Play collide sound
     if (sprite1.name == "ship") {
         playShipCollideSound();
+    } else {
+        playAsteroidHitSound();
     }
 
     if ((sprite1.name.includes("small") && sprite1.canCollide) || sprite1.name == "laser") {
