@@ -166,7 +166,7 @@ function capturePlayerActions() {
         this.ship.body.angularVelocity = 0;
     }
 
-    worldWrap(this.ship);
+    screenWrap(this.ship, 0);
 
     //if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && laserTime < game.time.now) {
     //    if (havingsheild) {
@@ -337,5 +337,5 @@ function beingpushedaway(sprite, pushedspeed) {
 }
 
 function worldWrap(thisSprite) {
-    game.world.wrap(thisSprite, 150);
+    game.world.wrap(thisSprite, 0);
 }
